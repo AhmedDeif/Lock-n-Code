@@ -1,3 +1,7 @@
 # Lock-n-Code
 
-## Ahmed Abodeif
+<<<<<<< HEAD
+- Ahmed Abodeif
+=======
+- Menna Nader
+>>>>>>> FETCH_HEAD
