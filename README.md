@@ -4,6 +4,5 @@
 - Omar ElHagin
 - Rania Abdel Monem
 - Amira ElEwady
-- doola
 - Omar Adel Ahmed Amr
 
