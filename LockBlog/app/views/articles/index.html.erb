@@ -1,0 +1,19 @@
+<h1>Listing articles</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'My Blog', controller: 'welcome' %>
+
+<%= link_to 'New article', new_article_path %>
