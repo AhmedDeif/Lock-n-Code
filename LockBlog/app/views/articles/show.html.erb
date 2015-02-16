@@ -6,6 +6,8 @@
 <p>
   <strong>Text:</strong>
   <%= @article.text %>
+  <br>
+  <td><%= social_share_button_tag("") %>
 </p>
 
-<%= link_to 'Back', articles/index %>
+<%= link_to 'Back', articles_path %>
