@@ -22,10 +22,18 @@ class ArticlesController < ApplicationController
         end
         
     end
-    
+
+
+    def current_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    helper_method :current_user
+
     private
     def article_params
         params.require(:article).permit(:title, :text)
     end
+
     
-    end
+end
