@@ -35,6 +35,8 @@ end
   end
 end
 def destroy
+  @user = User.find(session[:user_id])
+ if @user.admin==true
   @article = Article.find(params[:id])
   @article.destroy
  
