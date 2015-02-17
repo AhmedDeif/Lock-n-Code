@@ -28,17 +28,7 @@ class ArticlesController < ApplicationController
     helper_method :current_user
 
     private
-<<<<<<< HEAD
-        
-=======
     def article_params
         params.require(:article).permit(:title, :text, :category, :image)
     end
-
-    
-<<<<<<< HEAD
-end
-=======
->>>>>>> dajfjfda
     end
->>>>>>> FETCH_HEAD
