@@ -12,8 +12,8 @@ class ArticlesController < ApplicationController
     end
     def create
         @article = Article.new(article_params)
-        
-        if @article.save
+        if @article.save!
+            puts @article.image
             redirect_to @article
         else
             render 'new'
@@ -21,7 +21,12 @@ class ArticlesController < ApplicationController
     end
     
     private
-        def article_params
-            params.require(:article).permit(:title, :text)
-        end
+<<<<<<< HEAD
+        
+=======
+    def article_params
+        params.require(:article).permit(:title, :text, :category, :image)
+    end
+    
+>>>>>>> dajfjfda
     end
