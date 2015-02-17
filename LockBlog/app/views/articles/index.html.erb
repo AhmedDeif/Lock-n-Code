@@ -1,6 +1,17 @@
-<h1>Listing Articles</h1>
+<h1>Listing articles</h1>
 <%= link_to 'New article', new_article_path %>
-<table style = "width:100%">
+<div id="user_nav">
+  <% if current_user %>
+      logged in as <%= current_user.email %>
+      <%= link_to "log out", log_out_path %>
+      
+    <% else %>
+      <%= link_to "Sign up", sign_up_path %> or
+      <%= link_to "log in", log_in_path %>
+    <% end %>
+</div>
+ 
+ <table style = "width:100%">
   <tr>
     <th><h2>Title</h2></th>
     <th><h2>Text</h2></th>
@@ -16,6 +27,7 @@
       <td><%= link_to 'Destroy', article_path(article),
               method: :delete,
               data: { confirm: 'Are you sure you want to delete this article?' } %></td>
+
     </tr>
   <% end %>
 </table>
