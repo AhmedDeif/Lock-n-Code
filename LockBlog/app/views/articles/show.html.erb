@@ -1,11 +1,71 @@
 <p>
-  <strong>Title:</strong>
+  <strong>Blog Title:</strong>
   <%= @article.title %>
 </p>
  
 <p>
-  <strong>Text:</strong>
+  <strong>Body:</strong>
   <%= @article.text %>
 </p>
-
-<%= link_to 'Back', articles/index %>
+ 
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  
+  <%if(comment.url.length != 0)%>
+  <p>
+    <strong>url:</strong>
+    <%= comment.url %>
+  </p>
+  
+  <p>
+  <p>
+  	<%if(comment.url.include? "youtube.com")%>
+  		<iframe width="640" height="390" src=<%= comment.url.sub! 'watch?v=', 'embed/'%> frameborder="0" allowfullscreen></iframe>
+  	<%# <% comment.url.sub! 'watch?v=', 'embed/'%>
+  	<% end %>
+  	<% if(comment.url.length > 0 and !comment.url.include? "youtube.com" )%>
+  		<img src= <%= comment.url %> alt="Smiley face" height="300" width="300">
+  	<% end %>
+  </p>
+  
+</p>
+<% end %>
+<%= link_to 'delete Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :comment_on_0_pending_0 %><br>
+    <%= f.text_field :commented_to %>
+  </p>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :Video_Picture_url %><br>
+    <%= f.text_area :url %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit Article', edit_article_path(@article) %> |
+<%= link_to 'Back to Articles', articles_path %>
