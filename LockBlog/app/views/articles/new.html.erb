@@ -1,7 +1,7 @@
 <%= form_for :article, url: articles_path do |f| %>
 
 
-
+  <%= f.select :category, options_for_select([["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]) %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>

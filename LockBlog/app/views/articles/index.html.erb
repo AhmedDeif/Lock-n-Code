@@ -4,12 +4,14 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th>Category</th>
   </tr>
  
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= article.category %></td>
     </tr>
   <% end %>
 </table>
