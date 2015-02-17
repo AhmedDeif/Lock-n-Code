@@ -3,10 +3,10 @@ class Article < ActiveRecord::Base
     length: { minimum: 5 }
     validates :text, presence: true,
     length: { minimum: 5 }
-<<<<<<< HEAD
+
     has_many :comments
-=======
-    
-    
->>>>>>> doola'sWork
+
+
+    mount_uploader :image, ImageUploader
+
 end

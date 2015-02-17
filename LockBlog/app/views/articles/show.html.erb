@@ -2,10 +2,19 @@
   <strong>Blog Title:</strong>
   <%= @article.title %>
 </p>
+
+<a href="<%= @article.image_url.to_s %>">
+<img src="<%= @article.image_url.to_s %>" alt="The official HTML5 Icon" width="900" height="500">
+</a>
+
+<!-- <%= image_tag @article.image_url.to_s %> -->
+<!-- <%= @article.image_url.to_s %> -->
  
 <p>
   <strong>Body:</strong>
   <%= @article.text %>
+  <br>
+  <td><%= social_share_button_tag("") %>
 </p>
  
 <h2>Comments</h2>
@@ -70,3 +79,4 @@
 <%= link_to 'Edit Article', edit_article_path(@article) %> |
 <%= link_to 'Back to Articles', articles_path %>
 
+<%= link_to 'Back', articles_path %>
