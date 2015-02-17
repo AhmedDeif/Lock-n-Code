@@ -2,6 +2,13 @@
   <strong>Blog Title:</strong>
   <%= @article.title %>
 </p>
+
+<a href="<%= @article.image_url.to_s %>">
+<img src="<%= @article.image_url.to_s %>" alt="The official HTML5 Icon" width="900" height="500">
+</a>
+
+<!-- <%= image_tag @article.image_url.to_s %> -->
+<!-- <%= @article.image_url.to_s %> -->
  
 <p>
   <strong>Body:</strong>
