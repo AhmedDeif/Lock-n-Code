@@ -14,7 +14,7 @@
   <strong>Body:</strong>
   <%= @article.text %>
   <br>
-  <td><%= social_share_button_tag("") %>
+  <td> <%= render_shareable :buttons=> ['facebook', 'google_plus'], :turbolinks => true, :facebook => {:turbolinks => false} %>
 </p>
  
 <h2>Comments</h2>
