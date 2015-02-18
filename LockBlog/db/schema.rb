@@ -11,43 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217200849) do
+ActiveRecord::Schema.define(version: 20150217190842) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "category"
-    t.string   "image"
   end
 
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
-
   create_table "comments", force: :cascade do |t|
-    t.text     "commented_to"
+    t.string   "commenter"
     t.text     "body"
     t.text     "url"
     t.integer  "article_id"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
-  create_table "users", force: :cascade do |t|
-    t.string   "fisrt_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "password"
-    t.boolean  "admin"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "profilePicture"
-    t.boolean  "authorized"
+  create_table "replies", force: :cascade do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "replies", ["comment_id"], name: "index_replies_on_comment_id"
 
 end
