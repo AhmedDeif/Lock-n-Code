@@ -1,107 +1,82 @@
-<script type="text/javascript">
-			function showReply(comid) {
-			document.getElementById(comid).style.display = "inline";
-			return true;
-			}
-		</script>
 <p>
-  <strong>Title:</strong>
+  <strong>Blog Title:</strong>
   <%= @article.title %>
 </p>
+
+<a href="<%= @article.image_url.to_s %>">
+<img src="<%= @article.image_url.to_s %>" alt="The official HTML5 Icon" width="900" height="500">
+</a>
+
+<!-- <%= image_tag @article.image_url.to_s %> -->
+<!-- <%= @article.image_url.to_s %> -->
  
 <p>
-  <strong>Text:</strong>
+  <strong>Body:</strong>
   <%= @article.text %>
+  <br>
+  <td><%= social_share_button_tag("") %>
 </p>
+ 
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
-    <p>
-	<strong>Commenter:</strong>
+  <p>
+    <strong>Commenter:</strong>
     <%= comment.commenter %>
   </p>
  
   <p>
-	<strong>Comment:</strong>
+    <strong>Comment:</strong>
     <%= comment.body %>
   </p>
-  <p>
-  <p>
-  <% imgs = comment.url.split("\n") %>
-  <% if !imgs.nil? %>
-  <% imgs.each do |image| %>
-  <p>
-  	<%if(image.include? "youtube.com")%>
-	<iframe width="640" height="390" src=<%= image.sub! 'watch?v=', 'embed/'%> frameborder="0" allowfullscreen></iframe>
-  	<%# <% image.sub! 'watch?v=', 'embed/'%>
-  	<% end %>
-  	<% if(image.length > 0 and !image.include? "youtube.com" )%>
-	<img src= <%= image %> alt="Smiley face" height="300" width="300">
-  	<% end %>
-   </p>
-	<% end %>
-   <% end %>
-	<%= button_to('delete comment', [comment.article, comment], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
-  </p>
-    <% if !comment.nil? %>
-     <% comment.replies.each do |reply| %>
-        <p>
-			<strong>replier:</strong>
-			<%= reply.commenter %>
-        </p>
- 
-        <p>
-			<strong>reply:</strong>
-			<%= reply.body %>
-        </p>
-      <p>
-          
-      </p>
-	  <p>
-	  <%= button_to('delete reply', [reply.comment, reply], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
-      </p>
-	  <% end %>
-    <% end %>
-		 <input onclick="showReply('reply<%= comment.id %>')" type="button" value="Add a reply"/>
-		 
-		 <div id="reply<%= comment.id %>" style="display: none">
-        <%= form_for([comment, comment.replies.build]) do |f| %>
-            <p>
-				<%= f.label :commenter %><br>
-				<%= f.text_field :commenter %>
-            </p>
-            <p>
-				<%= f.label :body %><br>
-				<%= f.text_area :body %>
-            </p>
-            
   
-            <p>
-				<%= f.submit %>
-            </p>
-
-      <% end %>
-	  </div>
+  <%if(comment.url.length != 0)%>
+  <p>
+    <strong>url:</strong>
+    <%= comment.url %>
+  </p>
+  
+  <p>
+  <p>
+  	<%if(comment.url.include? "youtube.com")%>
+  		<iframe width="640" height="390" src=<%= comment.url.sub! 'watch?v=', 'embed/'%> frameborder="0" allowfullscreen></iframe>
+  	<%# <% comment.url.sub! 'watch?v=', 'embed/'%>
+  	<% end %>
+  	<% if(comment.url.length > 0 and !comment.url.include? "youtube.com" )%>
+  		<img src= <%= comment.url %> alt="Smiley face" height="300" width="300">
+  	<% end %>
+  </p>
+  
+</p>
 <% end %>
-
+<%= link_to 'delete Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
+ 
 <h2>Add a comment:</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
-	<%= f.label :commenter %><br>
-	<%= f.text_field :commenter %>
+    <%= f.label :comment_on_0_pending_0 %><br>
+    <%= f.text_field :commented_to %>
   </p>
   <p>
-	<%= f.label :body %><br>
-	<%= f.text_area :body %>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
   </p>
   <p>
-	<%= f.label :Video_Picture_url %><br>
-	<%= f.text_area :url %>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
   </p>
-  
   <p>
-	<%= f.submit %>
+    <%= f.label :Video_Picture_url %><br>
+    <%= f.text_area :url %>
+  </p>
+  <p>
+    <%= f.submit %>
   </p>
 <% end %>
-
+ 
+<%= link_to 'Edit Article', edit_article_path(@article) %> |
+<%= link_to 'Back to Articles', articles_path %>
 
 <%= link_to 'Back', articles_path %>
