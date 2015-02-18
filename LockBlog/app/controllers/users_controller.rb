@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     end
   end
 
-  if @user = current_user
+  if @user == @user2
 
    #@user ==user.id
      #User.destroy(user.id)
