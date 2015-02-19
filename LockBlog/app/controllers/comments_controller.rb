@@ -17,9 +17,11 @@ class CommentsController < ApplicationController
 	def create
     @article = Article.find(params[:article_id])
     if (session[:user_id])
-    @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
-	else 
+        @comment = @article.comments.create(comment_params)
+        newComment = @comment.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
+        @comment.update(body: newComment)
+        redirect_to article_path(@article)
+	  else 
         flash.now[:alert] = 'NOOO !!'
         redirect_to article_path(@article)
     end

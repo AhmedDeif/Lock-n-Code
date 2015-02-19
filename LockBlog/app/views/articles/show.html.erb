@@ -18,9 +18,8 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @article.text %>
+  <%= simple_format @article.text %>
   <br>
-  <%= social_share_button_tag("") %>
 </p>
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
@@ -31,7 +30,7 @@
  
   <p>
 	<strong>Comment:</strong>
-    <%= comment.body %>
+    <%= simple_format comment.body %>
   </p>
   
   <p>

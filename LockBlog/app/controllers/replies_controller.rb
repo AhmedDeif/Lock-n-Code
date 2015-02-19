@@ -4,16 +4,16 @@ class RepliesController < ApplicationController
     @reply = @comment.replies.find(params[:id])
     @reply.destroy
     redirect_to :back
-    end
+  end
 
 	def create
     	@comment = Comment.find(params[:comment_id])
     	@reply = @comment.replies.create(comment_params)
     	redirect_to  :back
-  	end
+  end
 	
 	def show
-	destroy
+      destroy
 	end
  
   private
