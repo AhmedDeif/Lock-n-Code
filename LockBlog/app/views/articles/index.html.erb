@@ -1,9 +1,15 @@
-<h1>Listing articles</h1>
- 
- <div id="user_nav">
+
+<h1>Listing Articles</h1>
+<%= link_to 'New article', new_article_path %>
+<div id="user_nav">
+
   <% if current_user %>
       logged in as <%= current_user.email %>
       <%= link_to "log out", log_out_path %>
+      <% if(!current_user.nil? and current_user.admin == true) %>
+      <%= link_to "Delete User", users_path %>
+     <% end %>
+
       
     <% else %>
       <%= link_to "Sign up", sign_up_path %> or
@@ -11,28 +17,40 @@
     <% end %>
 </div>
 
+
 <form method="getCateg">
 <%= select_tag("category", options_for_select([["Select Category",""],["All",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]])) %>
 <input type="submit" value="Filter" />
 </form>
 
-<table>
+
+<table style = "width:100%">
   <tr>
-    <th>Title</th>
-    <th>Text</th>
-	<th>Category</th>
+    <th><h2>Title</h2></th>
+    <th><h2>Text</h2></th>  
+    <th><h2>Category</h2></th>
+  <th colspan="4"></th>
   </tr>
  
   <% @articles.each do |article| %>
     <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-	  <td><%= article.category %></td>
+
+
+      <td><center><%= article.title %></center></td>
+      <td><center><%= article.text %></center></td>
+	  <td><center><%= article.category %></center></td>
+
       <td><%= link_to 'Show', article_path(article) %></td>
+
+      <% if(!current_user.nil? and current_user.admin == true) %>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+
+      <td><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this article?' } %></td>
+
+              <% end %>
+
     </tr>
   <% end %>
 </table>
-
-<%= link_to 'My Blog', controller: 'welcome' %>
-
-<%= link_to 'New article', new_article_path %>

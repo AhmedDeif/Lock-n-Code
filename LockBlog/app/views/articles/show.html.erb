@@ -18,10 +18,16 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @article.text %>
+  <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   <br>
-  <%= social_share_button_tag("") %>
+
 </p>
+
+<p>
+  <%= social_share_button_tag("") %>
+  <br>
+</p>
+
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
     <p>
@@ -31,6 +37,7 @@
  
   <p>
 	<strong>Comment:</strong>
+
     <%= comment.body %>
   </p>
   
@@ -49,6 +56,11 @@
    </p>
 	<% end %>
    <% end %>
+    <%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
+  </p>
+  
+  <p>
+
 	<%= button_to('delete comment', [comment.article, comment], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
   </p>
     <% if !comment.nil? %>
@@ -61,6 +73,7 @@
         <p>
 			<strong>reply:</strong>
 			<%= reply.body %>
+			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
         </p>
       <p>
           
@@ -97,6 +110,7 @@
   <p>
 	<%= f.label :commenter %><br>
 	<%= f.text_field :commenter %>
+<<<<<<< HEAD
   </p>
   <p>
 	<%= f.label :body %><br>
@@ -115,3 +129,6 @@
 <%= link_to 'Edit Article', edit_article_path(@article) %> |
 <%= link_to 'Back to Articles', articles_path %>
 <%= link_to 'Back', articles_path %>
+
+
+

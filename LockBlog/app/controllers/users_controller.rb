@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    if (session[:user_id] == :id)
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -50,19 +51,30 @@ class UsersController < ApplicationController
       end
     end
   end
-
+end
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    if ((session[:user_id] == :id ) ||
+     (current_user.admin == true))
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  else 
+    redirect_to users_path
   end
-def isAdmin
-@user.find(params[:admin])
 end
+
+def isAdmin
+@user.admin
+end
+
+ def current_user
+         @current_user || 
+        User.find(session[:user_id]) if session[:user_id]
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -72,6 +84,8 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:fisrt_name, :last_name, :email, :password)
+      params.require(:user).permit(:fisrt_name, :last_name, :email, :password, :profilePicture, :signature)
     end
+
 end
+

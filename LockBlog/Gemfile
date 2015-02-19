@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
 
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,5 +47,10 @@ group :development, :test do
   gem 'spring'
   
   gem 'social-share-button'
+<<<<<<< HEAD
+=======
+  
+  gem "auto_html"
+>>>>>>> 8704f4bc9fde126cfe1c2709b33d2e9f51e87544
 end
 

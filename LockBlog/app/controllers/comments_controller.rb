@@ -20,6 +20,11 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create(comment_params)
     redirect_to article_path(@article)
 	else 
+        @comment = @article.comments.create(comment_params)
+        newComment = @comment.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
+        @comment.update(body: newComment)
+        redirect_to article_path(@article)
+	  else 
         flash.now[:alert] = 'NOOO !!'
         redirect_to article_path(@article)
     end

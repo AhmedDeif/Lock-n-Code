@@ -22,5 +22,10 @@
   <%= @user.password %>
 </p>
 
+<p>
+  <strong>Signature:</strong>
+  <%= @user.signature %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', root_path %>
