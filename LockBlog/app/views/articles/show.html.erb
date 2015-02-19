@@ -30,13 +30,11 @@
  
   <p>
 	<strong>Comment:</strong>
-
-    <%= comment.body %>
+	<%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   </p>
   
   <p>
 
-    <%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   </p>
   
   <p>
@@ -48,7 +46,6 @@
  
         <p>
 			<strong>reply:</strong>
-			<%= reply.body %>
 			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
         </p>
       <p>
