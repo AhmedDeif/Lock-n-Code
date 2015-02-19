@@ -21,6 +21,12 @@
   <%= simple_format @article.text %>
   <br>
 </p>
+
+<p>
+  <%= social_share_button_tag("") %>
+  <br>
+</p>
+
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
     <p>
