@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<a href="<%= @user.profilePicture_url.to_s %>">
+<img src="<%= @user.profilePicture_url.to_s %>" width="200" height="200">
+</a>
 <p>
   <strong>Fisrt name:</strong>
   <%= @user.fisrt_name %>
@@ -21,4 +23,4 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', root_path %>
