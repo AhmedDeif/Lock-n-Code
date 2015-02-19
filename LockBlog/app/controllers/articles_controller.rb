@@ -17,13 +17,14 @@ class ArticlesController < ApplicationController
     #puts session[:user_id]
       if (session[:user_id] && @user.admin == true || @user.authorized == true)
         @article = Article.new(article_params)
-        @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
+        if !(@user.signature.blank?)
+            @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
+        end
         if @article.save!
             puts @article.image
             redirect_to @article
         end
         else
-           render 'new'
            flash.now[:alert] = 'NOOO !!'
            redirect_to articles_path()
         end

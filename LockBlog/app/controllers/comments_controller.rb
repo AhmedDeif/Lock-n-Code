@@ -18,8 +18,10 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     if (session[:user_id])
         @comment = @article.comments.create(comment_params)
-        newComment = @comment.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
-        @comment.update(body: newComment)
+        if !(current_user.signature.blank?)
+          newComment = @comment.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
+          @comment.update(body: newComment)
+        end
         redirect_to article_path(@article)
 	  else 
         flash.now[:alert] = 'NOOO !!'
