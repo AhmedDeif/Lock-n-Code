@@ -1,6 +1,6 @@
 <h1>Listing articles</h1>
-
-<div id="user_nav">
+ 
+ <div id="user_nav">
   <% if current_user %>
       logged in as <%= current_user.email %>
       <%= link_to "log out", log_out_path %>
@@ -10,19 +10,24 @@
       <%= link_to "log in", log_in_path %>
     <% end %>
 </div>
- 
+
+<form method="getCateg">
+<%= select_tag("category", options_for_select([["Select Category",""],["All",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]])) %>
+<input type="submit" value="Filter" />
+</form>
+
 <table>
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th>Category</th>
+	<th>Category</th>
   </tr>
  
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
-      <td><%= article.category %></td>
+	  <td><%= article.category %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
     </tr>
   <% end %>
