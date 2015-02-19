@@ -27,7 +27,6 @@ class RepliesController < ApplicationController
 end
 	
 	def show
-      destroy
 
 	end
  
@@ -43,4 +42,3 @@ def current_user
     def comment_params
       params.require(:reply).permit(:commenter, :body)
     end
-end

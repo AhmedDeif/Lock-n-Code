@@ -16,12 +16,13 @@ class ArticlesController < ApplicationController
     def create
         @user = User.find(session[:user_id])
 
-       if(session[:user_id] &&(@user.admin == true || @user.authorized == true))
+       if(session[:user_id] &&
+        (@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
 
 
         @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
-        if @article.save!
+        if (@article.save!)
 
         if !(@user.signature.blank?)
             @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
@@ -38,11 +39,14 @@ class ArticlesController < ApplicationController
 end
 end
 
+<<<<<<< Updated upstream
     def current_user
         @current_user || 
         User.find(session[:user_id]) if session[:user_id]
     end
            
+=======
+>>>>>>> Stashed changes
 
      def edit
   @article = Article.find(params[:id])
@@ -64,7 +68,7 @@ end
 
 def destroy
   @user = User.find(session[:user_id])
- if @user.admin==true
+ if (@user.admin==true)
   @article = Article.find(params[:id])
   @article.destroy
  
