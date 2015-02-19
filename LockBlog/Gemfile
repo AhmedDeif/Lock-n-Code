@@ -1,6 +1,5 @@
 
 source 'http://rubygems.org'
-gem 'social-share-button', '~> 0.1.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -47,5 +46,7 @@ group :development, :test do
   gem 'spring'
   
   gem 'social-share-button'
+  
+  gem "auto_html"
 end
 

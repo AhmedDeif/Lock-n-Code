@@ -18,7 +18,7 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @article.text %>
+  <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   <br>
   <%= social_share_button_tag("") %>
 </p>
@@ -32,24 +32,11 @@
  
   <p>
 	<strong>Comment:</strong>
-    <%= comment.body %>
+    <%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   </p>
   
   <p>
-  <% imgs = comment.url.split("\n") %>
-  <% if !imgs.nil? %>
-  <% imgs.each do |image| %>
-  <p>
-  	<%if(image.include? "youtube.com")%>
-	<iframe width="640" height="390" src=<%= image.sub! 'watch?v=', 'embed/'%> frameborder="0" allowfullscreen></iframe>
-  	<%# <% image.sub! 'watch?v=', 'embed/'%>
-  	<% end %>
-  	<% if(image.length > 0 and !image.include? "youtube.com" )%>
-	<img src= <%= image %> alt="Smiley face" height="300" width="300">
-  	<% end %>
-   </p>
-	<% end %>
-   <% end %>
+
 	<%= button_to('delete comment', [comment.article, comment], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
   </p>
     <% if !comment.nil? %>
@@ -61,7 +48,7 @@
  
         <p>
 			<strong>reply:</strong>
-			<%= reply.body %>
+			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
         </p>
       <p>
           
@@ -102,10 +89,6 @@
   <p>
 	<%= f.label :body %><br>
 	<%= f.text_area :body %>
-  </p>
-  <p>
-	<%= f.label :Video_Picture_url %><br>
-	<%= f.text_area :url %>
   </p>
   
   <p>

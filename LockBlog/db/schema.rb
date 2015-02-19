@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20150217200849) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text     "commented_to"
     t.string   "commenter"
     t.text     "body"
     t.text     "url"
