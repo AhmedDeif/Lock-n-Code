@@ -1,16 +1,19 @@
-class ArticlesController < ApplicationController   
+class ArticlesController < ApplicationController
+    
     def index
         @articles = Article.all
+        @articles = @articles.select{|v| v.category == params[:category]} if !params[:category].blank?
     end
+
     def show
         @article = Article.find(params[:id])
     end
     def new
-        @article = Article.new
+		@article = Article.new
     end
-
+	
     def create
-       @user = current_user
+        @user = current_user
     #puts session[:user_id]
       if (session[:user_id] && @user.admin == true || @user.authorized == true)
         @article = Article.new(article_params)
@@ -55,14 +58,15 @@ end
         @current_user || 
         User.find(session[:user_id]) if session[:user_id]
     end
+	
     helper_method :current_user
+	
     private
     def article_params
         params.require(:article).permit(:title, :text, :category, :image)
     end
+
    
-    def article_params
-        params.require(:article).permit(:title, :text, :category, :image)
-    end
+
     
 end

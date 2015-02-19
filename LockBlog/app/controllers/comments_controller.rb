@@ -1,39 +1,38 @@
 class CommentsController < ApplicationController
-    
-    def destroy
+	def destroy
        if (session[:user_id])
         @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
-        if ((current_user.admin == true) || 
+	if ((current_user.admin == true) || 
         :user == session[:user_id])
     @comment.destroy
     redirect_to article_path(@article)
-else
+	else
      @article = Article.find(params[:article_id])
      redirect_to article_path(@article)
-end 
+	end 
     end
- end   
-    def create
-  @article = Article.find(params[:article_id])
+    end
+
+	def create
+    @article = Article.find(params[:article_id])
     if (session[:user_id])
     @comment = @article.comments.create(comment_params)
     redirect_to article_path(@article)
-    else 
+	else 
         flash.now[:alert] = 'NOOO !!'
         redirect_to article_path(@article)
     end
 
-end 
+	end 
  
-    def current_user
+	def current_user
          @current_user || 
         User.find(session[:user_id]) if session[:user_id]
     end
-
+	
   private
     def comment_params
       params.require(:comment).permit(:body, :commented_to, :url, :user)
     end
-  
 end
