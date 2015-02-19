@@ -29,10 +29,6 @@
 
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
-    <p>
-	<strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
  
   <p>
 	<strong>Comment:</strong>
@@ -45,10 +41,6 @@
   </p>
     <% if !comment.nil? %>
      <% comment.replies.each do |reply| %>
-        <p>
-			<strong>replier:</strong>
-			<%= reply.commenter %>
-        </p>
  
         <p>
 			<strong>reply:</strong>
@@ -67,10 +59,6 @@
 		 <div id="reply<%= comment.id %>" style="display: none">
         <%= form_for([comment, comment.replies.build]) do |f| %>
             <p>
-				<%= f.label :commenter %><br>
-				<%= f.text_field :commenter %>
-            </p>
-            <p>
 				<%= f.label :body %><br>
 				<%= f.text_area :body %>
             </p>
@@ -86,10 +74,6 @@
 
 <h2>Add a comment:</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
-  <p>
-	<%= f.label :commenter %><br>
-	<%= f.text_field :commenter %>
-  </p>
   <p>
 	<%= f.label :body %><br>
 	<%= f.text_area :body %>

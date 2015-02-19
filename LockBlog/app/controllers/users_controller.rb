@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
+  
   def update
     if (session[:user_id] == :id)
     respond_to do |format|
@@ -52,6 +53,7 @@ class UsersController < ApplicationController
     end
   end
 end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -85,6 +87,7 @@ end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:fisrt_name, :last_name, :email, :password, :profilePicture, :signature)
+
     end
 
 end
