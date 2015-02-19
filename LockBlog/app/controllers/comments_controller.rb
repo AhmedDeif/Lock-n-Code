@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
-	
-  def destroy
+	def destroy
        if (session[:user_id])
-      @article = Article.find(params[:article_id])
+        @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
 	if ((current_user.admin == true) || 
         :user == session[:user_id])
@@ -14,17 +13,15 @@ class CommentsController < ApplicationController
 	end 
     end
     end
- 
+
 	def create
     @article = Article.find(params[:article_id])
     if (session[:user_id])
         @comment = @article.comments.create(comment_params)
         newComment = @comment.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
         @comment.update(body: newComment)
-         @comment.update_attribute :user_id , session[:user_id]
         redirect_to article_path(@article)
-	else 
-        testing-menna
+	  else 
         flash.now[:alert] = 'NOOO !!'
         redirect_to article_path(@article)
     end
