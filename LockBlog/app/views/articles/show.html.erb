@@ -20,11 +20,7 @@
   <strong>Body:</strong>
   <%= @article.text %>
   <br>
-<<<<<<< HEAD
-  <td> <%= render_shareable :buttons=> ['facebook', 'google_plus'], :turbolinks => true, :facebook => {:turbolinks => false} %>
-=======
   <%= social_share_button_tag("") %>
->>>>>>> origin/master
 </p>
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
