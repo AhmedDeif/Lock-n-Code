@@ -13,22 +13,22 @@ class ArticlesController < ApplicationController
     end
 	
     def create
-        @user = current_user
-    #puts session[:user_id]
-      if (session[:user_id] && @user.admin == true || @user.authorized == true)
+        @user = User.find(session[:user_id])
+
+       if(session[:user_id] &&(@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
         if !(@user.signature.blank?)
             @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
         end
-        if @article.save!
+        @article.save!
             puts @article.image
             redirect_to @article
-        end
         else
            flash.now[:alert] = 'NOOO !!'
            redirect_to articles_path()
         end
-    end
+      end
+
      def edit
   @article = Article.find(params[:id])
 end
@@ -36,10 +36,10 @@ end
 
  def update
     @user = User.find(session[:user_id])
- if @user.admin==true
+ if (@user.admin==true)
   @article = Article.find(params[:id])
  
-  if @article.update(article_params)
+  if (@article.update(article_params))
     redirect_to @article
   else
     render 'edit'
@@ -56,6 +56,7 @@ def destroy
   redirect_to articles_path
 end
 end
+
     def current_user
         @current_user || 
         User.find(session[:user_id]) if session[:user_id]

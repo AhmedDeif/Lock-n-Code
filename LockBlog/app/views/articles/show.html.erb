@@ -18,7 +18,7 @@
 
 <p>
   <strong>Body:</strong>
-  <%= simple_format @article.text %>
+  <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   <br>
 </p>
 
@@ -29,43 +29,22 @@
 
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
-    <p>
-	<strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
  
   <p>
 	<strong>Comment:</strong>
-    <%= simple_format comment.body %>
+    <%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   </p>
   
   <p>
-  <% imgs = comment.url.split("\n") %>
-  <% if !imgs.nil? %>
-  <% imgs.each do |image| %>
-  <p>
-  	<%if(image.include? "youtube.com")%>
-	<iframe width="640" height="390" src=<%= image.sub! 'watch?v=', 'embed/'%> frameborder="0" allowfullscreen></iframe>
-  	<%# <% image.sub! 'watch?v=', 'embed/'%>
-  	<% end %>
-  	<% if(image.length > 0 and !image.include? "youtube.com" )%>
-	<img src= <%= image %> alt="Smiley face" height="300" width="300">
-  	<% end %>
-   </p>
-	<% end %>
-   <% end %>
+
 	<%= button_to('delete comment', [comment.article, comment], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
   </p>
     <% if !comment.nil? %>
      <% comment.replies.each do |reply| %>
-        <p>
-			<strong>replier:</strong>
-			<%= reply.commenter %>
-        </p>
  
         <p>
 			<strong>reply:</strong>
-			<%= reply.body %>
+			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
         </p>
       <p>
           
@@ -79,10 +58,6 @@
 		 
 		 <div id="reply<%= comment.id %>" style="display: none">
         <%= form_for([comment, comment.replies.build]) do |f| %>
-            <p>
-				<%= f.label :commenter %><br>
-				<%= f.text_field :commenter %>
-            </p>
             <p>
 				<%= f.label :body %><br>
 				<%= f.text_area :body %>
@@ -100,16 +75,8 @@
 <h2>Add a comment:</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
-	<%= f.label :commenter %><br>
-	<%= f.text_field :commenter %>
-  </p>
-  <p>
 	<%= f.label :body %><br>
 	<%= f.text_area :body %>
-  </p>
-  <p>
-	<%= f.label :Video_Picture_url %><br>
-	<%= f.text_area :url %>
   </p>
   
   <p>
