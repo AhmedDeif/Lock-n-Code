@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<a href="<%= @user.profilePicture_url.to_s %>">
+<img src="<%= @user.profilePicture_url.to_s %>" width="200" height="200">
+</a>
 <p>
   <strong>Fisrt name:</strong>
   <%= @user.fisrt_name %>

@@ -14,17 +14,12 @@
   <strong>Body:</strong>
   <%= @article.text %>
   <br>
-  <td><%= social_share_button_tag("") %>
+  <%= social_share_button_tag("") %>
 </p>
 
  
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
   <p>
     <strong>Comment:</strong>
     <%= comment.body %>
@@ -55,15 +50,7 @@
 <% end %>
  
 <h2>Add a comment:</h2>
-<%= form_for([@article, @article.comments.build]) do |f| %>
-  <p>
-    <%= f.label :comment_on_0_pending_0 %><br>
-    <%= f.text_field :commented_to %>
-  </p>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
+<%= form_for([@article, @article.comments.build]) do |f| %> 
   <p>
     <%= f.label :body %><br>
     <%= f.text_area :body %>

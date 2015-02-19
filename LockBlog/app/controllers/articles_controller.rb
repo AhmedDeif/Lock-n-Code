@@ -1,4 +1,3 @@
-
 class ArticlesController < ApplicationController   
     def index
         @articles = Article.all
@@ -9,20 +8,26 @@ class ArticlesController < ApplicationController
     def new
         @article = Article.new
     end
+
     def create
+       @user = current_user
+    #puts session[:user_id]
+      if (session[:user_id] && @user.admin == true || @user.authorized == true)
         @article = Article.new(article_params)
         if @article.save!
             puts @article.image
             redirect_to @article
+        end
         else
-            render 'new'
+           render 'new'
+           flash.now[:alert] = 'NOOO !!'
+           redirect_to articles_path()
         end
     end
      def edit
   @article = Article.find(params[:id])
 end
     
-
 
  def update
     @user = User.find(session[:user_id])
@@ -47,7 +52,8 @@ def destroy
 end
 end
     def current_user
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        @current_user || 
+        User.find(session[:user_id]) if session[:user_id]
     end
     helper_method :current_user
     private
