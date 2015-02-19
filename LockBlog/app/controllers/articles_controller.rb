@@ -14,18 +14,19 @@ class ArticlesController < ApplicationController
     end
 	
     def create
-        @user = current_user
-    #puts session[:user_id]
-      if (session[:user_id] && @user.admin == true || @user.authorized == true)
+        @user = User.find(session[:user_id])
+      if (session[:user_id])
+
+       if(@user.admin == true || @user.authorized == true)
         @article = Article.new(article_params)
-        if @article.save!
+             @article.save!
             puts @article.image
             redirect_to @article
-        end
         else
            flash.now[:alert] = 'NOOO !!'
            redirect_to articles_path()
         end
+    end
 end
 
     def current_user
