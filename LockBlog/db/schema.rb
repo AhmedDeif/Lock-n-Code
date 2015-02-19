@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150218141124) do
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "comments", force: :cascade do |t|
+    t.text     "commented_to"
     t.string   "commenter"
     t.text     "body"
     t.text     "url"
