@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217200849) do
+ActiveRecord::Schema.define(version: 20150218141124) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "category"
     t.string   "image"
   end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -53,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150217200849) do
     t.datetime "updated_at",     null: false
     t.string   "profilePicture"
     t.boolean  "authorized"
+    t.text     "signature"
   end
 
 end

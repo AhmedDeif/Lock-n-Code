@@ -20,7 +20,11 @@
   <strong>Body:</strong>
   <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   <br>
+</p>
+
+<p>
   <%= social_share_button_tag("") %>
+  <br>
 </p>
 
 <h2>Comments</h2>
