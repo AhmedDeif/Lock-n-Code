@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
     
     def index
         @articles = Article.all
+        @articles = @articles.select{|v| v.category == params[:category]} if !params[:category].blank?
     end
     
     def show

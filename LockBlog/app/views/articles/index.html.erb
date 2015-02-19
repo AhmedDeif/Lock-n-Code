@@ -11,6 +11,11 @@
     <% end %>
 </div>
 
+<form method="getCateg">
+<%= select_tag("category", options_for_select([["Select Category",""],["All",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]])) %>
+<input type="submit" value="Filter" />
+</form>
+
 <table>
   <tr>
     <th>Title</th>
