@@ -88,7 +88,7 @@ end
     def user_params
       params.require(:user).permit(:fisrt_name, :last_name, :email, :password, :profilePicture, :signature)
 
-    end
+end
 
 end
 

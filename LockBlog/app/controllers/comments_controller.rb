@@ -25,7 +25,6 @@ class CommentsController < ApplicationController
           @comment.update(body: newComment)
         end
          @comment.update_attribute :user_id , session[:user_id]
-		 
     redirect_to article_path(@article)
 	else 
         flash.now[:alert] = 'NOOO !!'

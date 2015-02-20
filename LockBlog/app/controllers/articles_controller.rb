@@ -30,14 +30,13 @@ class ArticlesController < ApplicationController
         @article.save!
             puts @article.image
             redirect_to @article
+          end
         else
 
-           render 'new'
            flash.now[:alert] = 'NOOO !!'
            redirect_to articles_path()
         end
-end
-end
+    end
 
     def current_user
         @current_user || 
