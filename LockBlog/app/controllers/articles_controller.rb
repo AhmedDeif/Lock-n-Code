@@ -20,8 +20,6 @@ class ArticlesController < ApplicationController
         (@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
 
-
-        @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
         if (@article.save!)
 
         if !(@user.signature.blank?)

@@ -14,10 +14,15 @@ class RepliesController < ApplicationController
   end 
 
 	def create
+	@comment = Comment.find(params[:comment_id])
      if (session[:user_id])
-    	@comment = Comment.find(params[:comment_id])
-    	@reply = @comment.replies.create(comment_params)
-       @comment.update_attribute :user_id , session[:user_id]
+    	@reply = @comment.replies.create(replies_params)
+		
+		if !(current_user.signature.blank?)
+          @newReply = @reply.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
+          @reply.update(body: @newReply)
+        end
+		
     	redirect_to  :back
   end
 end
@@ -34,6 +39,6 @@ def current_user
     end
 
   private
-    def comment_params
-      params.require(:reply).permit(:body)
+    def replies_params
+      params.require(:reply).permit(:body,:user_id,:comment_id)
     end
