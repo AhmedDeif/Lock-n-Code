@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20150218141124) do
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commenter"
     t.text     "body"
     t.integer  "article_id"
     t.integer  "user_id"
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150218141124) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "replies", force: :cascade do |t|
-    t.string   "commenter"
     t.text     "body"
     t.integer  "comment_id"
     t.integer  "user_id"
