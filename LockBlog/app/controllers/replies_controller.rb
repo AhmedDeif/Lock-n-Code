@@ -35,5 +35,5 @@ def current_user
 
   private
     def comment_params
-      params.require(:reply).permit(:commenter, :body)
+      params.require(:reply).permit(:body)
     end
