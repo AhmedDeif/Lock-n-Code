@@ -5,8 +5,7 @@
 			}
 		</script>
 <p>
-  <strong>Blog Title:</strong>
-  <%= @article.title %>
+  <h1><img src="<%= @article.image %>" width="" height=""><%= @article.title %></h1>
 </p>
  
 
@@ -14,7 +13,6 @@
 <!-- <%= @article.image_url.to_s %> -->
 
 <p>
-  <strong>Body:</strong>
   <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   <br>
 
@@ -29,7 +27,7 @@
 <% @article.comments.each do |comment| %>
  
   <p>
-	<strong>Comment:</strong>
+	<h2>Comment:</h2>
 	<%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   </p>
   
@@ -45,7 +43,7 @@
      <% comment.replies.each do |reply| %>
  
         <p>
-			<strong>reply:</strong>
+			<h3>reply:</h3>
 			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
         </p>
       <p>
