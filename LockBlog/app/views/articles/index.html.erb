@@ -1,3 +1,4 @@
+
 <h1>Listing Articles</h1>
 <%= link_to 'New article', new_article_path %>
 <div id="user_nav">
@@ -8,6 +9,7 @@
       <% if(!current_user.nil? and current_user.admin == true) %>
       <%= link_to "Delete User", users_path %>
      <% end %>
+
       
     <% else %>
       <%= link_to "Sign up", sign_up_path %> or
@@ -21,6 +23,7 @@
 <input type="submit" value="Filter" />
 </form>
 
+
 <table style = "width:100%">
   <tr>
     <th><h2>Title</h2></th>
@@ -31,6 +34,7 @@
  
   <% @articles.each do |article| %>
     <tr>
+
 
       <td><center><%= article.title %></center></td>
       <td><center><%= article.text %></center></td>

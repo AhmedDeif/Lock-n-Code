@@ -9,9 +9,6 @@
   <%= @article.title %>
 </p>
  
- <a href="<%= @article.image_url.to_s %>">
-<img src="<%= @article.image_url.to_s %>" alt="The official HTML5 Icon" width="900" height="500">
-</a>
 
 <!-- <%= image_tag @article.image_url.to_s %> -->
 <!-- <%= @article.image_url.to_s %> -->
@@ -20,6 +17,12 @@
   <strong>Body:</strong>
   <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   <br>
+  <br>
+  <%if (!(User.find(@article.user_id)).signature.blank?)%>
+  ================================
+  <br>
+  <%= (User.find(@article.user_id)).signature %>
+  <%end%>
 </p>
 
 <p>
@@ -32,7 +35,15 @@
  
   <p>
 	<strong>Comment:</strong>
-    <%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
+	<%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
+  </p>
+  
+  <p>
+    <%if (!(User.find(comment.user_id)).signature.blank?)%>
+  ================================
+  <br>
+  <%= (User.find(comment.user_id)).signature %>
+  <%end%>
   </p>
   
   <p>
@@ -47,7 +58,13 @@
 			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
         </p>
       <p>
-          
+           <%if !(reply.user_id.nil?)%>
+         <%if (!(User.find(reply.user_id)).signature.blank?)%>
+       ================================
+      <br>
+      <%= (User.find(reply.user_id)).signature %>
+      <%end%>
+      <%end%>
       </p>
 	  <p>
 	  <%= button_to('delete reply', [reply.comment, reply], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
@@ -74,7 +91,9 @@
 
 <h2>Add a comment:</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
+
   <p>
+    
 	<%= f.label :body %><br>
 	<%= f.text_area :body %>
   </p>
@@ -86,5 +105,7 @@
 
 <%= link_to 'Edit Article', edit_article_path(@article) %> |
 <%= link_to 'Back to Articles', articles_path %>
+<%= link_to 'Back', articles_path %>
+
 
 
