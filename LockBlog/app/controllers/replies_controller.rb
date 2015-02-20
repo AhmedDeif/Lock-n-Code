@@ -15,10 +15,11 @@ class RepliesController < ApplicationController
 
 	def create
      if (session[:user_id])
-    	@comment = Comment.find(params[:comment_id])
-    	@reply = @comment.replies.create(comment_params)
-       @comment.update_attribute :user_id , session[:user_id]
-    	redirect_to  :back
+      @comment = Comment.find(params[:comment_id])
+      @reply = @comment.replies.create(comment_params)
+      @reply.update_attribute :user_id , session[:user_id]
+     @reply.save!    
+      redirect_to  :back
   end
 end
 	
