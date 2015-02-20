@@ -1,58 +1,20 @@
-@import 'bourbon'; // http://bourbon.io/
-
-@import '../partials/variables'; // colors, fonts etc...
-
-@import '../partials/mixins'; // custom mixins
-
-@import '../partials/layout'; // responsive grid and media queries
-
-/* -------------------------------- 
-
-Primary style
-
--------------------------------- */
-
-html * {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-*, *:after, *:before {
-	@include box-sizing(border-box);
-}
-
-body {
-	font: {
-		size: 100%;
-		family: $primary-font; // variables inside partials > _variables.scss
-	}
-	color: $main-text;
-	background-color: $background;
-}
-
-a {
-	color: $color-2;
-	text-decoration: none;
-}
-
-img {
-	max-width: 100%;
-}
-
-input, textarea {
-	font-family: $primary-font;
-	@include font-size(16px);
-
-	&::-ms-clear {
-    	display: none;
-	}
-}
-
-/* -------------------------------- 
-
-Main components 
-
--------------------------------- */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require social-share-button
+ *= require_self
+ */
+@import "bourbon";
+@import "users";
 
 header[role=banner] {
 	position: relative;
@@ -477,4 +439,3 @@ xsigin/signup popup
 #cd-login.is-selected, #cd-signup.is-selected, #cd-reset-password.is-selected {
 	display: block;
 }
-
