@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
    
   def create
       user = User.authenticate(params[:email],params[:password])
-      if user
+      if user 
           session[:user_id] = user.id
           redirect_to articles_path
        else
