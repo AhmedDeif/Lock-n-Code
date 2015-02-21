@@ -1,5 +1,5 @@
 
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -53,5 +53,7 @@ group :development, :test do
   gem 'bourbon'
 
   gem 'bootstrap-sass'
+
+  gem "redcarpet"
 end
 
