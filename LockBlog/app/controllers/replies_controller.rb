@@ -8,39 +8,33 @@ class RepliesController < ApplicationController
         :user == session[:user_id]))
     @reply.destroy
     redirect_to :back
-
   else 
     redirect_to :back
     end
   end 
 
-
-
 	def create
      if (session[:user_id])
-    	@comment = Comment.find(params[:comment_id])
-    	@reply = @comment.replies.create(comment_params)
-       @comment.update_attribute :user_id , session[:user_id]
-    	redirect_to  :back
-
+      @comment = Comment.find(params[:comment_id])
+      @reply = @comment.replies.create(comment_params)
+      @reply.update_attribute :user_id , session[:user_id]
+     @reply.save!    
+      redirect_to  :back
   end
 end
 	
 	def show
-      destroy
 
 	end
  
-  end
-	
 
 def current_user
          @current_user || 
         User.find(session[:user_id]) if session[:user_id]
+		end
     end
 
   private
     def comment_params
-      params.require(:reply).permit(:commenter, :body)
+      params.require(:reply).permit(:body)
     end
-end

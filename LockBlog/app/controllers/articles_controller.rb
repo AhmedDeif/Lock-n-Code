@@ -16,35 +16,33 @@ class ArticlesController < ApplicationController
     def create
         @user = User.find(session[:user_id])
 
-       if(session[:user_id] &&(@user.admin == true || @user.authorized == true))
+       if(session[:user_id] &&
+        (@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
+         @article.user_id=@user.id
 
+        #@article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
+        if (@article.save!)
 
-        @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
-        if @article.save!
-
-        if !(@user.signature.blank?)
-            @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
-        end
+        #if !(@user.signature.blank?)
+        #    @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
+        #end
         @article.save!
             puts @article.image
             redirect_to @article
+          end
         else
 
-           render 'new'
            flash.now[:alert] = 'NOOO !!'
            redirect_to articles_path()
         end
-end
+    end
 
     def current_user
         @current_user || 
         User.find(session[:user_id]) if session[:user_id]
     end
-           flash.now[:alert] = 'NOOO !!'
-           redirect_to articles_path()
-        end
-      end
+        
 
      def edit
   @article = Article.find(params[:id])
@@ -66,7 +64,7 @@ end
 
 def destroy
   @user = User.find(session[:user_id])
- if @user.admin==true
+ if (@user.admin==true)
   @article = Article.find(params[:id])
   @article.destroy
  

@@ -17,7 +17,12 @@
   <strong>Body:</strong>
   <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   <br>
-
+  <br>
+  <%if (!(User.find(@article.user_id)).signature.blank?)%>
+  ================================
+  <br>
+  <%= (User.find(@article.user_id)).signature %>
+  <%end%>
 </p>
 
 <p>
@@ -30,26 +35,15 @@
  
   <p>
 	<strong>Comment:</strong>
-
-    <%= comment.body %>
+	<%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
   </p>
   
   <p>
-  <% imgs = comment.url.split("\n") %>
-  <% if !imgs.nil? %>
-  <% imgs.each do |image| %>
-  <p>
-  	<%if(image.include? "youtube.com")%>
-	<iframe width="640" height="390" src=<%= image.sub! 'watch?v=', 'embed/'%> frameborder="0" allowfullscreen></iframe>
-  	<%# <% image.sub! 'watch?v=', 'embed/'%>
-  	<% end %>
-  	<% if(image.length > 0 and !image.include? "youtube.com" )%>
-	<img src= <%= image %> alt="Smiley face" height="300" width="300">
-  	<% end %>
-   </p>
-	<% end %>
-   <% end %>
-    <%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
+    <%if (!(User.find(comment.user_id)).signature.blank?)%>
+  ================================
+  <br>
+  <%= (User.find(comment.user_id)).signature %>
+  <%end%>
   </p>
   
   <p>
@@ -61,11 +55,16 @@
  
         <p>
 			<strong>reply:</strong>
-			<%= reply.body %>
 			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
         </p>
       <p>
-          
+           <%if !(reply.user_id.nil?)%>
+         <%if (!(User.find(reply.user_id)).signature.blank?)%>
+       ================================
+      <br>
+      <%= (User.find(reply.user_id)).signature %>
+      <%end%>
+      <%end%>
       </p>
 	  <p>
 	  <%= button_to('delete reply', [reply.comment, reply], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
@@ -92,18 +91,11 @@
 
 <h2>Add a comment:</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
-  <p>
-	<%= f.label :commenter %><br>
-	<%= f.text_field :commenter %>
-  </p>
-  <p>
 
+  <p>
+    
 	<%= f.label :body %><br>
 	<%= f.text_area :body %>
-  </p>
-  <p>
-	<%= f.label :Video_Picture_url %><br>
-	<%= f.text_area :url %>
   </p>
   
   <p>

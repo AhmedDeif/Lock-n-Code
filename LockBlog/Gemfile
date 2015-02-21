@@ -47,7 +47,6 @@ group :development, :test do
   gem 'spring'
   
   gem 'social-share-button'
-
   
   gem "auto_html"
 end
