@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, html: {class: 'cd-form'} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,29 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <p class="fieldset">
     <%= f.label :fisrt_name %><br>
     <%= f.text_field :fisrt_name %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="fieldset">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
+  </p>
+  <p class="fieldset">
+    <%= f.label :email, :class => "image-replace cd-email", 'for' => 'signup-email' %><br>
+    <%= f.text_field :email, :class => "full-width has-padding has-border", 'id' => 'signup-email', 'placeholder' => 'E-mail' %>
+  </p>
+  <p class="fieldset">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
-  </div>
-
-  <div class="field">
+  </p>
+  <p class="fieldset">
     <%= f.label :signature %><br>
     <%= f.text_area :signature, size: "24x4" %>
-  </div>
+  </p>
   <%= f.file_field :profilePicture %>
   <div class="actions">
     <%= f.submit %>
-  </div>
+</div>
 <% end %>

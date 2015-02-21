@@ -3,12 +3,24 @@
 <head>
   <title>LockBlog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag	 'http://fonts.googleapis.com/css?family=PT+Sans:400,700' %>
+  <%= stylesheet_link_tag	 'reset.css' %>
+  <%= stylesheet_link_tag	 'style.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'modernizr.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header role="banner">
+		<div id="cd-logo"><%= link_to(image_tag("cd-logo.svg", :alt => "Logo"), '/') %></div>
 
+		<nav class="main-nav">
+			<ul>
+				<li><% if(!session[:user_id]) then %><%= link_to('Log in', 'log_in', :class => "cd-signin") %><% else %><p style="color: white"><%= User.find(session[:user_id]).fisrt_name %></p><% end %></li>
+				<li><% if(!session[:user_id]) then %><%= link_to('Sign up', 'sign_up', :class => "cd-signup") %><% else %><%= link_to('Log out', 'log_out', :class => "cd-signup") %><% end %></li>
+			</ul>
+		</nav>
+	</header>
 <%= yield %>
-
 </body>
 </html>
