@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
 	def create
     @article = Article.find(params[:article_id])
     if (session[:user_id])
+
     @comment = @article.comments.create(comment_params)
 	
         if !(current_user.signature.blank?)
@@ -26,12 +27,12 @@ class CommentsController < ApplicationController
         end
 		
     redirect_to article_path(@article)
-	else 
+  else 
         flash.now[:alert] = 'NOOO !!'
         redirect_to article_path(@article)
     end
 
-	end 
+  end 
  
  end
 	def current_user

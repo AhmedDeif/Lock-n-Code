@@ -17,7 +17,12 @@
 <p>
   <label class="myarticletext"><%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
   <br>
-
+  <br>
+  <%if (!(User.find(@article.user_id)).signature.blank?)%>
+  ================================
+  <br>
+  <%= (User.find(@article.user_id)).signature %>
+  <%end%>
 </p>
 </div>
 
@@ -31,7 +36,11 @@
   </p>
   
   <p>
-
+    <%if (!(User.find(comment.user_id)).signature.blank?)%>
+  ================================
+  <br>
+  <%= (User.find(comment.user_id)).signature %>
+  <%end%>
   </p>
   
   <p>
@@ -45,7 +54,13 @@
 			<label class="myarticletext"><%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
         </p>
       <p>
-          
+           <%if !(reply.user_id.nil?)%>
+         <%if (!(User.find(reply.user_id)).signature.blank?)%>
+       ================================
+      <br>
+      <%= (User.find(reply.user_id)).signature %>
+      <%end%>
+      <%end%>
       </p>
 	  <p>
 	  <%= button_to('delete reply', [reply.comment, reply], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>

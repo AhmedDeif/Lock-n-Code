@@ -42,6 +42,9 @@ GEM
       rinku (~> 1.5.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bourbon (4.2.0)
+      sass (~> 3.4)
+      thor
     builder (3.2.2)
     byebug (3.5.1)
       activemodel (>= 3.2.0)
@@ -181,12 +184,14 @@ PLATFORMS
 
 DEPENDENCIES
   auto_html
+  bourbon
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.0)
+  redcarpet
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   social-share-button

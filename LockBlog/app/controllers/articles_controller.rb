@@ -19,12 +19,14 @@ class ArticlesController < ApplicationController
        if(session[:user_id] &&
         (@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
+         @article.user_id=@user.id
+
 
         if (@article.save!)
 
-        if !(@user.signature.blank?)
-            @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
-        end
+        #if !(@user.signature.blank?)
+        #    @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
+        #end
         @article.save!
             puts @article.image
             redirect_to @article
