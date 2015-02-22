@@ -1,15 +1,17 @@
-<h1>Log in</h1>
-<%= form_tag sessions_path do %>
-	<p>
-		<%= label_tag :email %><br />
-		<%= text_field_tag :email, params[:email] %>
+<%= stylesheet_link_tag 'users' %>
+<h1>Log In</h1>
+<%= form_tag sessions_path, :class => 'cd-form' do %>
+	<p class="fieldset">
+		<%= label_tag :email, nil, class: 'image-replace2 cd-email label-header' %>
+		<%= text_field_tag :email, params[:email], class: 'has-padding has-border', id: 'signup-email', placeholder: 'E-mail' %>
 	</p>
-	<p>
-		<%= label_tag :password %><br />
-		<%= password_field_tag :password %>
+	<p class="fieldset">
+		<%= label_tag :password, nil, class: 'image-replace2 cd-password label-header' %>
+		<%= password_field_tag :password, nil, class: 'has-padding has-border', id: 'signup-password', placeholder: 'Password' %>
 
 	</p>
-	<p class="button"><%= submit_tag %></p>
+	<br>
+	<%= submit_tag nil, class: 'submit-button input-me' %>
 	<% end %>
 
 	<% flash.each do |name, msg| %>
