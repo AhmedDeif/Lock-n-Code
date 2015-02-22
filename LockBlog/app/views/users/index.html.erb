@@ -1,8 +1,10 @@
+<%= stylesheet_link_tag "usersIndex.css" %>
+<div id = "containerIndex">
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Users</h1>
 
-<table>
+<table table class="articlesTable" style = "width:100%">
   <thead>
     <tr>
       <th>First name</th>
@@ -33,3 +35,4 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+</div>
