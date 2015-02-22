@@ -1,4 +1,4 @@
-#mainTitle{
+h1{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 25px;
     text-align: center;
@@ -25,6 +25,10 @@
   border-bottom-right-radius:18px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
+  min-height: 250px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .articlesTable td{
@@ -63,6 +67,7 @@
     padding: 5px;
     background: #ecf9f7;
     font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+    max-width: 200px;
 }
 
 .getCateg input[type=submit]{
@@ -131,8 +136,6 @@
                 color: white;
                 padding-top: 20px;
                 margin-top: 5px;
-                border-radius: 10px;
-
             }
 
 .articlesTable #imgColm{
