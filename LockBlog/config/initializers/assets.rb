@@ -2,12 +2,15 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
+Rails.application.config.assets.precompile += %w( myArticle.css )
+Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( reset.css )
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( modernizr.js )
 Rails.application.config.assets.precompile += %w( sprites/social-share-button.png )
 Rails.application.config.assets.precompile += %w( sprites/social-share-button@2x.png )
 Rails.application.config.assets.precompile += %w( cd-logo.svg )
+Rails.application.config.assets.precompile += %w( articlesIndex.css )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

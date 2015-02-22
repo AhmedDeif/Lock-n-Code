@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
         @article = Article.new(article_params)
          @article.user_id=@user.id
 
-        #@article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
+
         if (@article.save!)
 
         #if !(@user.signature.blank?)
@@ -40,9 +40,8 @@ class ArticlesController < ApplicationController
 
     def current_user
         @current_user || 
-        User.find(session[:user_id]) if session[:user_id]
+        User.find_by_id(session[:user_id]) if session[:user_id]
     end
-        
 
      def edit
   @article = Article.find(params[:id])
@@ -72,10 +71,7 @@ def destroy
 end
 end
 
-    def current_user
-        @current_user || 
-        User.find(session[:user_id]) if session[:user_id]
-    end
+    
 	
     helper_method :current_user
 	

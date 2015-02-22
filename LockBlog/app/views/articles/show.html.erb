@@ -1,50 +1,34 @@
+<%= stylesheet_link_tag "myArticle.css" %>
 <script type="text/javascript">
 			function showReply(comid) {
 			document.getElementById(comid).style.display = "inline";
 			return true;
 			}
 		</script>
+<div style="text-align: right;"><%= social_share_button_tag("") %></div>
 <p>
-  <strong>Blog Title:</strong>
-  <%= @article.title %>
+  <div class="articleTitle"><img id="authorIMG" src="<%= @article.image %>" width="45" height="45"><br><h1><%= @article.title %><h1></div>
 </p>
- 
+ <br>
 
 <!-- <%= image_tag @article.image_url.to_s %> -->
 <!-- <%= @article.image_url.to_s %> -->
-
+<div class="myboxarticles">
 <p>
-  <strong>Body:</strong>
-  <%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
-  <br>
-  <br>
-  <%if (!(User.find(@article.user_id)).signature.blank?)%>
-  ================================
-  <br>
-  <%= (User.find(@article.user_id)).signature %>
-  <%end%>
-</p>
-
-<p>
-  <%= social_share_button_tag("") %>
+  <label><%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
   <br>
 </p>
+</div>
 
-<h2>Comments</h2>
+
 <% @article.comments.each do |comment| %>
- 
+ <div class="myboxcomments">
   <p>
-	<strong>Comment:</strong>
-	<%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
+	<h2>Comment:</h2>
+	<br>
+	<label style="text-align: left;"><%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
   </p>
   
-  <p>
-    <%if (!(User.find(comment.user_id)).signature.blank?)%>
-  ================================
-  <br>
-  <%= (User.find(comment.user_id)).signature %>
-  <%end%>
-  </p>
   
   <p>
 
@@ -53,19 +37,7 @@
     <% if !comment.nil? %>
      <% comment.replies.each do |reply| %>
  
-        <p>
-			<strong>reply:</strong>
-			<%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %>
-        </p>
-      <p>
-           <%if !(reply.user_id.nil?)%>
-         <%if (!(User.find(reply.user_id)).signature.blank?)%>
-       ================================
-      <br>
-      <%= (User.find(reply.user_id)).signature %>
-      <%end%>
-      <%end%>
-      </p>
+			<label style="text-align: left;"><%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
 	  <p>
 	  <%= button_to('delete reply', [reply.comment, reply], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
       </p>
@@ -87,9 +59,11 @@
 
       <% end %>
 	  </div>
+</div>	  
 <% end %>
 
 <h2>Add a comment:</h2>
+<div class="myboxcomments">
 <%= form_for([@article, @article.comments.build]) do |f| %>
 
   <p>
@@ -102,6 +76,7 @@
 	<%= f.submit %>
   </p>
 <% end %>
+</div>
 
 <%= link_to 'Edit Article', edit_article_path(@article) %> |
 <%= link_to 'Back to Articles', articles_path %>

@@ -1,47 +1,33 @@
-<div id="body">
+<%= stylesheet_link_tag "articlesIndex.css" %>
 
 
-<div id="header">
-<div id="logoArea">Logo</div>
-<div id="user_nav">
-  <% if current_user %>
-      <p id="loggedAs">Logged in as <%= current_user.email %></p>
-      <ul id="nav2">
-      <li><%= link_to "log out", log_out_path %></li>
-      <% if(!current_user.nil? and current_user.admin == true) %>
-      <li><%= link_to "Delete User", users_path %></li>
-     <% end %>
-     </ul>
-
-    <% else %>
-    <ul id="nav">
-     <li><%= link_to "Log in", log_in_path %></li>
-      <li><%= link_to "Sign up", sign_up_path %></li>
-      </ul>
-    <% end %>
-</div>
-</div>
-
-
-<div id="mainArea">
-<div class = "container page">
+<div id = "containerIndex">
 
 <h1 class="mainTitle">Listing Articles</h1>
-<%= link_to 'New article', new_article_path %>
+
 
 
 
 <form class="getCateg">
-
 <%= select_tag("category", options_for_select([["Select Category",""],["All",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]), {:class => 'form-control'}) %>
 <input type="submit" value="Filter" />
+
 </form>
 
 
 
 <table class="articlesTable" style = "width:100%">
   <tr>
-  <th><h2></h2></th>
+  <th ><h2></h2></th>
+  <th><h2></h2></th> 
+    <th><h2></h2></th> 
+    <th><h2></h2></th>
+
+  <th colspan="4"><button id="newArticleButton"><%= link_to 'New article', new_article_path %></button></th>
+  </tr>
+
+  <tr>
+  <th id="imgColm"><h2></h2></th>
   <th><h2>Author</h2></th> 
     <th><h2>Title</h2></th> 
     <th><h2>Category</h2></th>
@@ -51,26 +37,32 @@
  
   <% @articles.each do |article| %>
     <tr>
-    <td ><img id="authorPic" src="<%= User.find(article.user_id).profilePicture %>" alt="Smiley face" height="40" width="40"></td>
+    <td id="imgRow"><img id="authorPic" src="<%= User.find(article.user_id).profilePicture %>" height="40" width="40"></td>
     <td id="authorName"><center> <%= User.find(article.user_id).fisrt_name %> <%=User.find(article.user_id).last_name %></center></td>
       <td id="articleTitle"><center><%= article.title %></center></td>
 	    <td id="articleCategory"><center><%= article.category %></center></td>
 
-      <td id="show"><%= link_to 'Show', article_path(article) %></td>
+      
 
       <% if(!current_user.nil? and current_user.admin == true) %>
-      <td id="edit"><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td id="show"><%= link_to 'Show', article_path(article) %></td>
+        <td id="edit"><%= link_to 'Edit', edit_article_path(article) %></td>
 
-      <td id="destroy"><%= link_to 'Destroy', article_path(article),
+        <td id="destroy"><%= link_to 'Destroy', article_path(article),
               method: :delete,
               data: { confirm: 'Are you sure you want to delete this article?' } %></td>
 
-              <% end %>
+      
+      <%else%>
+          <td id="show"></td>
+          <td id="show"><%= link_to 'Show', article_path(article) %></td>
+          <td id="show"> </td>
+      <%end%>
 
     </tr>
   <% end %>
 </table>
 </div>
-</div>
+
 <div id="footer">Lock N' Code</div>
-</div>
+
