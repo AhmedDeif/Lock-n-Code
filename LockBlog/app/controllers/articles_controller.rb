@@ -1,3 +1,4 @@
+
 class ArticlesController < ApplicationController
     
     def index
@@ -19,7 +20,9 @@ class ArticlesController < ApplicationController
        if(session[:user_id] &&
         (@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
-        
+
+         @article.user_id=@user.id
+
         if (@article.save!)
 
         #if !(@user.signature.blank?)
