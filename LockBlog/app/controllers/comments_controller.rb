@@ -18,20 +18,25 @@ class CommentsController < ApplicationController
 	def create
     @article = Article.find(params[:article_id])
     if (session[:user_id])
+
     @comment = @article.comments.create(comment_params)
-	     @comment.update_attribute :user_id , session[:user_id]
-        if !(current_user.signature.blank?)
-          newComment = @comment.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
-          @comment.update(body: newComment)
-        end
-         
+
+  
+       # if !(current_user.signature.blank?)
+          #newComment = @comment.body + "\n" + "-------------------------------------" + "\n" + current_user.signature
+         # @comment.update(body: newComment)
+       # end
+       @user = User.find(session[:user_id])
+        @comment.user_id=@user.id
+         @comment.save!
+
     redirect_to article_path(@article)
-	else 
+  else 
         flash.now[:alert] = 'NOOO !!'
         redirect_to article_path(@article)
     end
 
-	end 
+  end 
  
  end
 	def current_user
@@ -41,5 +46,5 @@ class CommentsController < ApplicationController
 	
   private
     def comment_params
-      params.require(:comment).permit(:body, :user)
+      params.require(:comment).permit(:body)
     end
