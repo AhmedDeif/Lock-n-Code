@@ -12,28 +12,28 @@
   <% end %>
 
   <p class="fieldset">
-    <%= f.label :fisrt_name, :class => "image-replace cd-username", 'for' => 'signup-username' %><br>
+    <%= f.label :fisrt_name, :class => "image-replace cd-username label-header", 'for' => 'signup-username' %><br>
     <%= f.text_field :fisrt_name, :class => "has-padding has-border", 'id' => 'signup-username', 'placeholder' => 'First Name' %>
   </p>
   <p class="fieldset">
-    <%= f.label :last_name, :class => "image-replace cd-username", 'for' => 'signup-username' %><br>
+    <%= f.label :last_name, :class => "image-replace cd-username label-header", 'for' => 'signup-username' %><br>
     <%= f.text_field :last_name, :class => "has-padding has-border", 'id' => 'signup-username', 'placeholder' => 'Last Name' %>
   </p>
   <p class="fieldset">
-    <%= f.label :email, :class => "image-replace cd-email", 'for' => 'signup-email' %><br>
+    <%= f.label :email, :class => "image-replace cd-email label-header", 'for' => 'signup-email' %><br>
     <%= f.text_field :email, :class => "has-padding has-border", 'id' => 'signup-email', 'placeholder' => 'E-mail' %>
   </p>
   <p class="fieldset">
-    <%= f.label :password, :class => "image-replace cd-password", 'for' => 'signup-password' %><br>
+    <%= f.label :password, :class => "image-replace cd-password label-header", 'for' => 'signup-password' %><br>
     <%= f.password_field :password, :class => "has-padding has-border", 'id' => 'signup-password', 'placeholder' => 'Password' %>
   </p>
   <p class="fieldset">
-    <%= f.label :signature, :class => "image-replace-textarea cd-signature", 'for' => 'signup-password' %><br>
+    <%= f.label :signature, :class => "image-replace-textarea cd-signature label-header", 'for' => 'signup-password' %><br>
     <%= f.text_area :signature, :class => "has-padding has-border text-area", 'id' => 'signup-password', 'placeholder' => 'Signature' %>
   </p>
-  <%= f.file_field :profilePicture, :class => "submit-button" %>
+  <%= f.file_field :profilePicture, :class => "submit-button input-me" %>
   <div class="actions">
     <br>
-    <%= f.submit :class => "submit-button" %>
+    <%= f.submit :class => "submit-button input-me" %>
 </div>
 <% end %>

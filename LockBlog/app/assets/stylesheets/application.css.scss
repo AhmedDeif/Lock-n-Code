@@ -35,7 +35,7 @@ header[role=banner] {
 		@include transform-origin(0 50%);
 		@include transform(scale(.8));
 
-		img {
+		.img-header {
 			display: block;
 		}
 	}
@@ -64,7 +64,7 @@ header[role=banner] {
 	background: url('/images/cd-icon-menu.svg') no-repeat center center;
 	cursor: pointer;
 
-	ul {
+	.ul-header {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -77,7 +77,7 @@ header[role=banner] {
 		}
 	}
 
-	a {
+	.a-header {
 		display: block;
 		height: $header-height-S;
 		line-height: $header-height-S;
@@ -93,7 +93,7 @@ header[role=banner] {
 		background: none;
 		cursor: auto;
 
-		ul {
+		.ul-header {
 			position: static;
 			width: auto;
 			@include transform(translateY(0));
@@ -104,7 +104,7 @@ header[role=banner] {
 			}
 		}
 
-		li {
+		.li-header {
 			display: inline-block;
 			margin-left: 1em;
 
@@ -113,7 +113,7 @@ header[role=banner] {
 			}
 		}
 
-		a {
+		.a-header {
 			display: inline-block;
 			height: auto;
 			line-height: normal;
@@ -172,60 +172,6 @@ xsigin/signup popup
 	}
 }
 
-.cd-user-modal-container {
-	position: relative;
-	width: 90%;
-	max-width: 600px;
-	background: #FFF;
-	margin: 3em auto 4em;
-	cursor: auto;
-	@include border-radius;
-	@include transform(translateY(-30px));
-
-	@include transition-property (transform);
-	@include transition-duration(.3s);
-
-	.cd-switcher {
-		@include clearfix;
-
-		li {
-			@include column(.5);
-			text-align: center;
-
-			&:first-child a {
-				border-radius: .25em 0 0 0;
-			}
-
-			&:last-child a {
-				border-radius: 0 .25em 0 0;
-			}
-		}
-
-		a {
-			display: block;
-			width: 100%;
-			height: 50px;
-			line-height: 50px;
-			background: $color-3;
-			color: darken($color-3, 30%);
-
-			&.selected {
-				background: #FFF;
-				color: $main-text;
-			}
-		}
-	}
-
-	@include MQ(S) {
-		margin: 4em auto;
-
-		.cd-switcher a {
-			height: 70px;
-			line-height: 70px;
-		}
-	}
-}
-
 .cd-form {
 	padding: 1.4em;
 	width: 400px;
@@ -246,7 +192,7 @@ xsigin/signup popup
 		}
 	}
 
-	label {
+	.label-header {
 		@include font-size(14px);
 
 		&.image-replace-textarea {
@@ -305,7 +251,7 @@ xsigin/signup popup
 		}
 	}
 
-	input {
+	.input-me {
 		margin: 0;
 		padding: 0;
 		@include border-radius;
@@ -357,55 +303,6 @@ xsigin/signup popup
 				background: lighten($color-2, 5%);
 				outline: none;
 			}
-		}
-	}
-
-	.hide-password {
-		display: inline-block;
-		position: absolute;
-		right: 0;
-		top: 0;
-		padding: 6px 15px;
-		border-left: 1px solid $color-3;
-		@include center(y); // see partials > _mixins.scss
-		@include font-size(14px);
-		color: $color-1;
-	}
-
-	.cd-error-message {
-		display: inline-block;
-		position: absolute;
-		left: -5px;
-		bottom: -35px;
-		background: rgba($red, .9);
-		padding: .8em;
-		z-index: 2;
-		color: #FFF;
-		@include font-size(13px);
-		@include border-radius;
-
-		/* prevent click and touch events */
-		pointer-events: none;
-
-		visibility: hidden;
-		opacity: 0;
-
-		@include transition(opacity .2s 0, visibility 0 .2s);
-
-		&::after {
-			/* triangle */
-			content: '';
-			position: absolute;
-			left: 22px;
-			bottom: 100%;
-			@include triangle(16px, rgba($red, .9), up);
-		}
-
-		&.is-visible {
-			opacity: 1;
-			visibility: visible;
-
-			@include transition(opacity .2s 0, visibility 0 0);
 		}
 	}
 

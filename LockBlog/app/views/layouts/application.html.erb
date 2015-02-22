@@ -12,12 +12,12 @@
 </head>
 <body>
 <header role="banner">
-		<div id="cd-logo"><%= link_to(image_tag("cd-logo.svg", :alt => "Logo"), '/') %></div>
+		<div id="cd-logo"><%= link_to(image_tag("cd-logo.svg", :alt => "Logo", :class => 'img-header'), '/') %></div>
 
 		<nav class="main-nav">
-			<ul>
-				<li><% if(!session[:user_id]) then %><%= link_to('Log in', 'log_in', :class => "cd-signin") %><% else %><p style="color: #2E757A"><%= User.find(session[:user_id]).fisrt_name %></p><% end %></li>
-				<li><% if(!session[:user_id]) then %><%= link_to('Sign up', 'sign_up', :class => "cd-signup") %><% else %><%= link_to('Log out', 'log_out', :class => "cd-signup") %><% end %></li>
+			<ul class="ul-header">
+				<li class="li-header"><% if(!session[:user_id]) then %><%= link_to('Log in', 'log_in', :class => "cd-signin") %><% else %><p style="color: #2E757A"><%= User.find(session[:user_id]).fisrt_name %></p><% end %></li>
+				<li class="li-header"><% if(!session[:user_id]) then %><%= link_to('Sign up', 'sign_up', :class => "cd-signup") %><% else %><%= link_to('Log out', 'log_out', :class => "cd-signup") %><% end %></li>
 			</ul>
 		</nav>
 	</header>
