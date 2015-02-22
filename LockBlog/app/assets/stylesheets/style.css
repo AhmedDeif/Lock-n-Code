@@ -51,7 +51,6 @@ header[role=banner] {
 }
 header[role=banner] #cd-logo {
   float: left;
-  margin: 4px 0 0 5%;
   /* reduce logo size on mobile and make sure it is left aligned with the transform-origin property */
   -webkit-transform-origin: 0 50%;
   -moz-transform-origin: 0 50%;
@@ -64,7 +63,7 @@ header[role=banner] #cd-logo {
   -o-transform: scale(0.8);
   transform: scale(0.8);
 }
-header[role=banner] #cd-logo img {
+header[role=banner] #cd-logo .img-header {
   display: block;
 }
 header[role=banner]::after {
@@ -78,7 +77,7 @@ header[role=banner]::after {
     height: 80px;
   }
   header[role=banner] #cd-logo {
-    margin: 20px 0 0 5%;
+   
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
@@ -89,7 +88,7 @@ header[role=banner]::after {
 
 .main-nav {
   float: right;
-  margin-right: 5%;
+ 
   width: 44px;
   height: 100%;
   background: url("../img/cd-icon-menu.svg") no-repeat center center;
@@ -148,10 +147,14 @@ header[role=banner]::after {
   }
   .main-nav .li-header {
     display: inline-block;
-    margin-left: 1em;
+  
   }
   .main-nav .li-header:nth-last-child(2) {
+<<<<<<< HEAD
     margin-left: 2em;
+=======
+  
+>>>>>>> استبن
   }
   .main-nav .a-header {
     display: inline-block;
@@ -211,7 +214,7 @@ xsigin/signup popup
   width: 90%;
   max-width: 600px;
   background: #FFF;
-  margin: 3em auto 4em;
+ 
   cursor: auto;
   border-radius: 0.25em;
   -webkit-transform: translateY(-30px);
@@ -256,7 +259,7 @@ xsigin/signup popup
 }
 @media only screen and (min-width: 600px) {
   .cd-user-modal-container {
-    margin: 4em auto;
+   
   }
   .cd-user-modal-container .cd-switcher .a-header {
     height: 70px;
@@ -269,13 +272,13 @@ xsigin/signup popup
 }
 .cd-form .fieldset {
   position: relative;
-  margin: 1.4em 0;
+ 
 }
 .cd-form .fieldset:first-child {
-  margin-top: 0;
+  
 }
 .cd-form .fieldset:last-child {
-  margin-bottom: 0;
+  
 }
 .cd-form .label-header {
   font-size: 14px;
@@ -313,7 +316,11 @@ xsigin/signup popup
   background-image: url("../img/cd-icon-password.svg");
 }
 .cd-form .input-me {
+<<<<<<< HEAD
   margin: 0;
+=======
+ 
+>>>>>>> استبن
   padding: 0;
   border-radius: 0.25em;
 }
@@ -331,12 +338,12 @@ xsigin/signup popup
   -o-appearance: none;
   appearance: none;
 }
-.cd-form input.has-border:focus {
+.cd-form .input-me.has-border:focus {
   border-color: #343642;
   box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
   outline: none;
 }
-.cd-form input.has-error {
+.cd-form .input-me.has-error {
   border: 1px solid #d76666;
 }
 .cd-form input[type=password] {
@@ -422,15 +429,15 @@ xsigin/signup popup
     padding: 2em;
   }
   .cd-form .fieldset {
-    margin: 2em 0;
+    
   }
   .cd-form .fieldset:first-child {
-    margin-top: 0;
+    
   }
   .cd-form .fieldset:last-child {
-    margin-bottom: 0;
+    
   }
-  .cd-form input.has-padding {
+  .cd-form .input-me.has-padding {
     padding: 16px 20px 16px 50px;
   }
   .cd-form input[type=submit] {
@@ -460,7 +467,7 @@ xsigin/signup popup
   font-size: 14px;
   font-size: 0.875rem;
 }
-.cd-form-bottom-message a {
+.cd-form-bottom-message .a-header {
   color: #FFF;
   text-decoration: underline;
 }
