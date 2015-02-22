@@ -1,13 +1,26 @@
 body {
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 50%;
   text-align: center;
   background-color: #fff; 
   }
   p{
-  font-size:14px;
+  font-size:16px;
   font-family:Cambria;
+  }
+  h1{
+  font-size:30px;
+  font-family:'Helvetica';
+  }
+  
+  h2{
+  font-size:25px;
+  font-family:'Helvetica';
+  }
+  h3{
+  font-size:200px;
+  font-family:'Helvetica';
   }
 
 #authorIMG {
@@ -21,12 +34,27 @@ body {
   font-family:'Helvetica';
   font-size:20px;
   }
-  .mybox {
+  .myboxarticles {
 		background:#fff;
 		width:auto;
 		padding:0 20px;
+		padding-top:20px;
 		padding-bottom:20px;
-		margin:10px 0;
+		margin:30px 0;
+		margin-left:-40px;
+		margin-right:-40px;
+		border:solid 1px #c7c7c7;
+		-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.30);
+		-moz-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.30);
+		box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.30);
+}
+  .myboxcomments {
+		background:#fff;
+		width:auto;
+		padding:0 20px;
+		padding-top:20px;
+		padding-bottom:20px;
+		margin:30px 0;
 		border:solid 1px #c7c7c7;
 		-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.30);
 		-moz-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.30);
@@ -42,7 +70,8 @@ input{
 	background: -ms-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background: linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
-	padding:8px 13px;
+	padding:10px 25px;
+	margin:30px 0;
 	color:#fff;
 	font-family:'Helvetica Neue',sans-serif;
 	font-size:17px;

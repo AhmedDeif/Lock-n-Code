@@ -13,35 +13,22 @@
 
 <!-- <%= image_tag @article.image_url.to_s %> -->
 <!-- <%= @article.image_url.to_s %> -->
-<div class="mybox">
+<div class="myboxarticles">
 <p>
-  <label class="myarticletext"><%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
+  <label><%= auto_html(@article.text) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
   <br>
-  <br>
-  <%if (!(User.find(@article.user_id)).signature.blank?)%>
-  ================================
-  <br>
-  <%= (User.find(@article.user_id)).signature %>
-  <%end%>
 </p>
 </div>
 
 
 <% @article.comments.each do |comment| %>
- <div class="mybox">
+ <div class="myboxcomments">
   <p>
 	<h2>Comment:</h2>
 	<br>
-	<label class="myarticletext"><%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
+	<label style="text-align: left;"><%= auto_html(comment.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
   </p>
   
-  <p>
-    <%if (!(User.find(comment.user_id)).signature.blank?)%>
-  ================================
-  <br>
-  <%= (User.find(comment.user_id)).signature %>
-  <%end%>
-  </p>
   
   <p>
 
@@ -50,18 +37,7 @@
     <% if !comment.nil? %>
      <% comment.replies.each do |reply| %>
  
-        <p>
-			<label class="myarticletext"><%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
-        </p>
-      <p>
-           <%if !(reply.user_id.nil?)%>
-         <%if (!(User.find(reply.user_id)).signature.blank?)%>
-       ================================
-      <br>
-      <%= (User.find(reply.user_id)).signature %>
-      <%end%>
-      <%end%>
-      </p>
+			<label style="text-align: left;"><%= auto_html(reply.body) { simple_format; image; youtube(:width => 400, :height => 250, :autoplay => false) } %></label>
 	  <p>
 	  <%= button_to('delete reply', [reply.comment, reply], {:onclick => "return confirm('Are you sure?')", :method => :delete}) %>
       </p>
@@ -87,7 +63,7 @@
 <% end %>
 
 <h2>Add a comment:</h2>
-<div class="mybox">
+<div class="myboxcomments">
 <%= form_for([@article, @article.comments.build]) do |f| %>
 
   <p>

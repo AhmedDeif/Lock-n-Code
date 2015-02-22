@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -81,7 +81,9 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      if(session[:user_id])
+        @user = User.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

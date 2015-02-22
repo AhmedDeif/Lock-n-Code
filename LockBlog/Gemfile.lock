@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
@@ -42,6 +42,8 @@ GEM
       rinku (~> 1.5.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     bourbon (4.2.0)
       sass (~> 3.4)
       thor
@@ -65,12 +67,14 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.0)
+    coffee-script-source (1.8.0)
     columnize (0.9.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     erubis (2.7.0)
     execjs (2.3.0)
+    font-awesome-sass (4.3.1)
+      sass (~> 3.2)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -184,10 +188,13 @@ PLATFORMS
 
 DEPENDENCIES
   auto_html
+  bootstrap-sass (= 3.2.0.0)
   bourbon
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
+  coffee-script-source (= 1.8.0)
+  font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.0)
