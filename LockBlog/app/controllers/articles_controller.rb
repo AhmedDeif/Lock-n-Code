@@ -19,9 +19,12 @@ class ArticlesController < ApplicationController
        if(session[:user_id] &&
         (@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
+<<<<<<< HEAD
          @article.user_id=@user.id
 
 
+=======
+>>>>>>> Home
         if (@article.save!)
 
         #if !(@user.signature.blank?)

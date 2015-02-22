@@ -42,3 +42,4 @@ def current_user
     def replies_params
       params.require(:reply).permit(:body,:user_id,:comment_id)
     end
+end
