@@ -38,6 +38,23 @@ img {
 	max-width: 100%;
 }
 
+.text-area {
+	width: 400px;
+	height: 54px;
+	padding: 12px 20px 12px 50px;
+	border: 1px solid $color-3;
+			@include appearance(none);
+
+			&:focus {
+				border-color: $color-1;
+				box-shadow: 0 0 5px rgba($color-1, .1);
+				outline: none;
+			}
+	border-radius: .25em;
+	resize: none;
+
+}
+
 input, textarea {
 	font-family: $primary-font;
 	@include font-size(16px);
@@ -45,6 +62,15 @@ input, textarea {
 	&::-ms-clear {
     	display: none;
 	}
+}
+
+h1 {
+	font-family: $primary-font;
+	@include font-size(48px);
+	text-align: center;
+	margin-top: 10px;
+	color: #1F211E;
+	font-weight: bolder;
 }
 
 /* -------------------------------- 
@@ -254,8 +280,12 @@ xsigin/signup popup
 
 .cd-form {
 	padding: 1.4em;
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
 
 	.fieldset {
+		width: 400px;
 		position: relative;
 		margin: 1.4em 0;
 
@@ -271,8 +301,7 @@ xsigin/signup popup
 	label {
 		@include font-size(14px);
 
-		&.image-replace {
-			/* replace text with an icon */
+		&.image-replace-textarea {
 			display: inline-block;
 			position: absolute;
 			left: 15px;
@@ -280,6 +309,7 @@ xsigin/signup popup
 			height: 20px;
 			width: 20px;
 
+			margin-top: 6px;
 			overflow: hidden;
 			text-indent: 100%;
 			white-space: nowrap;
@@ -290,18 +320,40 @@ xsigin/signup popup
 			background-position: 50% 0;
 		}
 
-		&.cd-username {
-			/*background-image: url('/images/cd-icon-username.svg');*/
-			font-family: FontAwesome;
-			content: "f007";
+		&.image-replace {
+			/* replace text with an icon */
+			display: inline-block;
+			position: absolute;
+			left: 15px;
+			@include center(y);
+			height: 20px;
+			width: 20px;
+
+			margin-top: 10px;
+			overflow: hidden;
+			text-indent: 100%;
+			white-space: nowrap;
+			color: transparent;
+			text-shadow: none;
+
+			background-repeat: no-repeat;
+			background-position: 50% 0;
+		}
+
+		&.cd-username {			
+			background-image: image-url('user_000000_16.png');
 		}
 
 		&.cd-email {
-			background-image: url('/images/cd-icon-email.svg');
+			background-image: image-url('envelope_000000_16.png');
 		}
 
 		&.cd-password {
-			background-image: url('/images/cd-icon-password.svg');
+			background-image: image-url('lock_000000_16.png');
+		}
+
+		&.cd-signature {
+			background-image: image-url('pencil-square_000000_16.png');
 		}
 	}
 
@@ -309,6 +361,7 @@ xsigin/signup popup
 		margin: 0;
 		padding: 0;
 		@include border-radius;
+		width: 400px;
 
 		&.full-width {
 			width: 100%;
@@ -333,16 +386,22 @@ xsigin/signup popup
 			border: 1px solid $red;
 		}
 
+		&[type=file] {
+			padding: .6em 1em;
+			border: 1px solid rgba(#1F211E, .6);
+			border-radius: 50em;
+			color: #1F211E;
+		}
+
 		&[type=password] { 
-			/* space left for the HIDE button */
 			padding-right: 65px; 
 		}
 
 		&[type=submit] {
 			padding: 16px 0;
 			cursor: pointer;
-			background: $color-2;
-			color: #FFF;
+			background: #1F211E;
+			color: #F3F9D7;
 			font-weight: bold;
 			border: none;
 			@include appearance(none);

@@ -8,7 +8,10 @@ Rails.application.config.assets.precompile += %w( modernizr.js )
 Rails.application.config.assets.precompile += %w( sprites/social-share-button.png )
 Rails.application.config.assets.precompile += %w( sprites/social-share-button@2x.png )
 Rails.application.config.assets.precompile += %w( cd-logo.svg )
-
+Rails.application.config.assets.precompile += %w( user_000000_16.png )
+Rails.application.config.assets.precompile += %w( envelope_000000_16.png )
+Rails.application.config.assets.precompile += %w( lock_000000_16.png )
+Rails.application.config.assets.precompile += %w( pencil-square_000000_16.png )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
