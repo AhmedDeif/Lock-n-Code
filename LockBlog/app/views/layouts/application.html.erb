@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>LockBlog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag	 'http://fonts.googleapis.com/css?family=PT+Sans:400,700', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag	 'reset.css', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag	 'http://fonts.googleapis.com/css?family=PT+Sans:400,700', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag	 'style.css', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'modernizr.js', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
 
 		<nav class="main-nav">
 			<ul>
-				<li><% if(!session[:user_id]) then %><%= link_to('Log in', 'log_in', :class => "cd-signin") %><% else %><p style="color: white"><%= User.find(session[:user_id]).fisrt_name %></p><% end %></li>
+				<li><% if(!session[:user_id]) then %><%= link_to('Log in', 'log_in', :class => "cd-signin") %><% else %><p style="color: #2E757A"><%= User.find(session[:user_id]).fisrt_name %></p><% end %></li>
 				<li><% if(!session[:user_id]) then %><%= link_to('Sign up', 'sign_up', :class => "cd-signup") %><% else %><%= link_to('Log out', 'log_out', :class => "cd-signup") %><% end %></li>
 			</ul>
 		</nav>

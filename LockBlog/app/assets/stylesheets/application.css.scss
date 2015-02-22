@@ -15,11 +15,17 @@
  */
 @import "bourbon";
 @import "users";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+	background: #2E757A;
+}
 
 header[role=banner] {
 	position: relative;
 	height: $header-height-S;
-	background: $color-1;
+	background: #F3F9D7;
 
 	#cd-logo {
 		float: left;
@@ -55,7 +61,7 @@ header[role=banner] {
 	margin-right: 5%;
 	width: 44px;
 	height: 100%;
-	background: url('../img/cd-icon-menu.svg') no-repeat center center;
+	background: url('/images/cd-icon-menu.svg') no-repeat center center;
 	cursor: pointer;
 
 	ul {
@@ -113,15 +119,20 @@ header[role=banner] {
 			line-height: normal;
 			background: transparent;
 
-			&.cd-signin, &.cd-signup {
+			&.cd-signin {
+				color: #2E757A;
 				padding: .6em 1em;
 				border: 1px solid rgba(#FFF, .6);
 				border-radius: 50em;
 			}
 
 			&.cd-signup {
-				background: $color-2;
+				color: #F3F9D7;
+				background: #2E757A;
 				border: none;
+				padding: .6em 1em;
+				border: 1px solid rgba(#FFF, .6);
+				border-radius: 50em;
 			}
 		}
 	}
@@ -254,15 +265,17 @@ xsigin/signup popup
 		}
 
 		&.cd-username {
-			background-image: url('../img/cd-icon-username.svg');
+			/*background-image: url('/images/cd-icon-username.svg');*/
+			font-family: FontAwesome;
+			content: "f007";
 		}
 
 		&.cd-email {
-			background-image: url('../img/cd-icon-email.svg');
+			background-image: url('/images/cd-icon-email.svg');
 		}
 
 		&.cd-password {
-			background-image: url('../img/cd-icon-password.svg');
+			background-image: url('/images/cd-icon-password.svg');
 		}
 	}
 
@@ -422,7 +435,7 @@ xsigin/signup popup
 	height: 40px;
 	right: 0;
 	top: -40px;
-	background: url('../img/cd-icon-close.svg') no-repeat center center;
+	background: url('/images/cd-icon-close.svg') no-repeat center center;
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;

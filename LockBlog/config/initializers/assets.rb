@@ -5,6 +5,9 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( reset.css )
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( modernizr.js )
+Rails.application.config.assets.precompile += %w( sprites/social-share-button.png )
+Rails.application.config.assets.precompile += %w( sprites/social-share-button@2x.png )
+Rails.application.config.assets.precompile += %w( cd-logo.svg )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
