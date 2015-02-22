@@ -17,6 +17,7 @@
 
 
 <table class="articlesTable" style = "width:100%">
+  <% if(!current_user.nil? and (current_user.admin == true or current_user.authorized== true)) %>
   <tr>
   <th ><h2></h2></th>
   <th><h2></h2></th> 
@@ -25,6 +26,9 @@
 
   <th colspan="4"><button id="newArticleButton"><%= link_to 'New article', new_article_path %></button></th>
   </tr>
+<%end%>
+
+
 
   <tr>
   <th id="imgColm"><h2></h2></th>
