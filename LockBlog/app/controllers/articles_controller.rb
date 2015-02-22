@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
        if(session[:user_id] &&
         (@user.admin == true || @user.authorized == true))
         @article = Article.new(article_params)
-
+        @article.update_attribute :user_id, session[:user_id]
 
         @article.text += "\n" + "-------------------------------------" + "\n" + @user.signature
         if (@article.save!)
