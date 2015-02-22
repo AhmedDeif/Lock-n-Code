@@ -16,8 +16,8 @@
 
 		<nav class="main-nav">
 			<ul class="ul-header">
-				<li class="li-header"><% if(!session[:user_id]) then %><%= link_to('Log in', 'log_in', :class => "cd-signin a-header") %><% else %><p style="color: #2E757A"><%= User.find(session[:user_id]).fisrt_name %></p><% end %></li>
-				<li class="li-header"><% if(!session[:user_id]) then %><%= link_to('Sign up', 'sign_up', :class => "cd-signup a-header") %><% else %><%= link_to('Log out', 'log_out', :class => "cd-signup a-header") %><% end %></li>
+				<li class="li-header"><% if(!session[:user_id]) then %><%= link_to('Log in', '/log_in', :class => "cd-signin a-header") %><% else %><p style="color: #2E757A"><%= User.find(session[:user_id]).fisrt_name %></p><% end %></li>
+				<li class="li-header"><% if(!session[:user_id]) then %><%= link_to('Sign up', '/sign_up', :class => "cd-signup a-header") %><% else %><%= link_to('Log out', '/log_out', :class => "cd-signup a-header") %><% end %></li>
 			</ul>
 		</nav>
 	</header>
