@@ -5,6 +5,7 @@
  */
 
 body {
+    margin-top: 50px; 
     background-color: #2E757A;/* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
@@ -18,8 +19,9 @@ body {
 }
 
 .image-bg-fluid-height {
-	background: url('http://lorempixel.com/g/1920/500/') no-repeat center center scroll;
+	background: url('/assets/bg.png') no-repeat center center scroll;
     padding: 100px 0;
+    height: 700px;
 }
 
 .image-bg-fixed-height {
@@ -60,11 +62,12 @@ section {
 
 footer {
     position: relative;
-    top:-50px;
+    top:-40px;
     margin: 50px 0;
     background-color: #2E757A;
     color: #F3F9D7 ;
 }
+
 
 @media(max-width:768px) {
     section {

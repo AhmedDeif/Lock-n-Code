@@ -16,8 +16,8 @@ body {
     z-index: -1;
      position: relative;
     top:30%;
-    background-color: #2E757A;
-    color: #F3F9D7;
+    background-color:   #2E757A;
+    color: #F3F9D7 ;
 }
 
 
@@ -26,6 +26,13 @@ body {
     vertical-align: center;
     text-align: center;
 }
+
+.col-md-4 img{
+height: 100px;
+width: 100px;
+border-radius: 50px;
+}
+
 .carousel-inner {
     height: 100%;
 
@@ -40,7 +47,7 @@ body {
 }
 
 #myCarousel{
-    height: 600px;
+    height: 500px;
     position: relative;
     top:200px;
 }
