@@ -1,4 +1,4 @@
-#mainTitle{
+h1 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 25px;
     text-align: center;
@@ -25,11 +25,16 @@
   border-bottom-right-radius:18px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
+   min-height: 250px;
+   padding-bottom: 20px;
+   padding-left: 10px;
+   padding-right: 10px;
 }
 
 .articlesTable td{
     font-family: Cambria, Georgia, serif;
     font-size: 18px;
+
 }
 
 .articlesTable #articleTitle{
@@ -124,16 +129,7 @@
 	margin-left: 50px;
 }
 
-#footer{
-                background-color: #343642;
-                height: 40px;
-                width: 100%;
-                color: white;
-                padding-top: 20px;
-                margin-top: 5px;
-                border-radius: 10px;
 
-            }
 
 .articlesTable #imgColm{
     width: 50px;
@@ -142,13 +138,13 @@
 
 #newArticleButton{
         background: #d6ff32;
-    background: -moz-linear-gradient(top,#f1f1f0 0%,#f1f1f0 100%);
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f1f1f0),color-stop(100%,#188BC0));
-    background: -webkit-linear-gradient(top,#f1f1f0 0%,#f1f1f0 100%);
-    background: -o-linear-gradient(top,#f1f1f0 0%,#f1f1f0 100%);
-    background: -ms-linear-gradient(top,#f1f1f0 0%,#f1f1f0 100%);
-    background: linear-gradient(top,#f1f1f0 0%,#f1f1f0 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f0',endColorstr='#188BC0',GradientType=0);
+    background: -moz-linear-gradient(top,#b7b7b7 0%,#d1d1d1 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#b7b7b7),color-stop(100%,#188BC0));
+    background: -webkit-linear-gradient(top,#b7b7b7 0%,#d1d1d1 100%);
+    background: -o-linear-gradient(top,#b7b7b7 0%,#d1d1d1 100%);
+    background: -ms-linear-gradient(top,#b7b7b7 0%,#d1d1d1 100%);
+    background: linear-gradient(top,#b7b7b7 0%,#d1d1d1 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#b7b7b7',endColorstr='#188BC0',GradientType=0);
     padding: 5px 20px;
     margin:30px 0;
     color:#fff;
@@ -157,5 +153,5 @@
     border-radius:4px;
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
-    border:1px solid #f1f1f0
+    border:1px solid #b7b7b7
 }
