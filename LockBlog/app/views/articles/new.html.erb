@@ -120,7 +120,7 @@ height: 300px;
 
 <%= form_for :article, url: articles_path do |f| %>
 
-<%= f.select :category, options_for_select([["Select Category",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]) %>
+<%= f.select :category, options_for_select([["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]) %>
 
 <p>
     <%= f.text_field :title, :placeholder => "Article Title", :cols => "50", :rows => "30"%>
