@@ -5,8 +5,7 @@
  */
 
 body {
-    margin-top: 50px; 
-    background-color: #6B6F56;/* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: #2E757A;/* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .image-bg-fluid-height,
@@ -36,26 +35,26 @@ section {
     padding: 75px 0;
     height:50%;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 }
 
 .section-heading {
     margin: 30px 0;
     font-size: 4em;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 }
 
 .section-lead {
     margin: 30px 0;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 }
 
 .section-paragraph {
     margin: 30px 0;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 
 }
 
@@ -63,7 +62,7 @@ footer {
     position: relative;
     top:-50px;
     margin: 50px 0;
-    background-color: #6B6F56;
+    background-color: #2E757A;
     color: #F3F9D7 ;
 }
 

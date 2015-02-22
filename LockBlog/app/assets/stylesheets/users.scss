@@ -82,7 +82,7 @@ Main components
 header[role=banner] {
 	position: relative;
 	height: $header-height-S;
-	background: $color-1;
+	background: #F3F9D7;
 
 	#cd-logo {
 		float: left;
@@ -92,7 +92,7 @@ header[role=banner] {
 		@include transform-origin(0 50%);
 		@include transform(scale(.8));
 
-		img {
+		.img-header {
 			display: block;
 		}
 	}
@@ -109,6 +109,88 @@ header[role=banner] {
 		#cd-logo {
 			margin: 20px 0 0 5%;
 			@include transform(scale(1));
+		}
+	}
+}
+
+.main-nav {
+	float: right;
+	margin-right: 5%;
+	width: 44px;
+	height: 100%;
+	background: url('/images/cd-icon-menu.svg') no-repeat center center;
+	cursor: pointer;
+
+	.ul-header {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+
+		@include transform(translateY(-100%));
+
+		&.is-visible {
+			@include transform(translateY($header-height-S));
+		}
+	}
+
+	.a-header {
+		display: block;
+		height: $header-height-S;
+		line-height: $header-height-S;
+		padding-left: 5%;
+		background: darken($color-1, 5%);
+		border-top: 1px solid lighten($color-1, 3%);
+		color: #FFF;
+	}
+
+	@include MQ(M) {
+		width: auto;
+		height: auto;
+		background: none;
+		cursor: auto;
+
+		.ul-header {
+			position: static;
+			width: auto;
+			@include transform(translateY(0));
+			line-height: $header-height-M;
+
+			&.is-visible {
+				@include transform(translateY(0));
+			}
+		}
+
+		.li-header {
+			display: inline-block;
+			margin-left: 1em;
+
+			&:nth-last-child(2) {
+				margin-left: 2em;
+			}
+		}
+
+		.a-header {
+			display: inline-block;
+			height: auto;
+			line-height: normal;
+			background: transparent;
+
+			&.cd-signin {
+				color: #2E757A;
+				padding: .6em 1em;
+				border: 1px solid rgba(#FFF, .6);
+				border-radius: 50em;
+			}
+
+			&.cd-signup {
+				color: #F3F9D7;
+				background: #2E757A;
+				border: none;
+				padding: .6em 1em;
+				border: 1px solid rgba(#FFF, .6);
+				border-radius: 50em;
+			}
 		}
 	}
 }
