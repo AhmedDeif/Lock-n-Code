@@ -1,3 +1,4 @@
+
 /*!
  * Start Bootstrap - Full Width Pics HTML Template (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
@@ -6,7 +7,7 @@
 
 body {
     margin-top: 50px; 
-    background-color: #6B6F56;/* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: #2E757A;/* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .image-bg-fluid-height,
@@ -19,8 +20,9 @@ body {
 }
 
 .image-bg-fluid-height {
-	background: url('http://lorempixel.com/g/1920/500/') no-repeat center center scroll;
+	background: url('/assets/bg.png') no-repeat center center scroll;
     padding: 100px 0;
+    height: 700px;
 }
 
 .image-bg-fixed-height {
@@ -36,36 +38,37 @@ section {
     padding: 75px 0;
     height:50%;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 }
 
 .section-heading {
     margin: 30px 0;
     font-size: 4em;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 }
 
 .section-lead {
     margin: 30px 0;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 }
 
 .section-paragraph {
     margin: 30px 0;
     color: #F3F9D7 ;
-    background-color: #6B6F56;
+    background-color: #2E757A;
 
 }
 
 footer {
     position: relative;
-    top:-50px;
+    top:-40px;
     margin: 50px 0;
-    background-color: #6B6F56;
+    background-color: #2E757A;
     color: #F3F9D7 ;
 }
+
 
 @media(max-width:768px) {
     section {
@@ -76,4 +79,5 @@ footer {
     .section-heading {
         font-size: 2em;
     }
+>>>>>>> Stashed changes
 }
