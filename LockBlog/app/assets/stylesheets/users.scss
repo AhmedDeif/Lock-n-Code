@@ -81,6 +81,39 @@ Main components
 
 -------------------------------- */
 
+header[role=banner] {
+	position: relative;
+	height: $header-height-S;
+	background: #F3F9D7;
+
+	#cd-logo {
+		float: left;
+		margin: 4px 0 0 5%;
+
+		/* reduce logo size on mobile and make sure it is left aligned with the transform-origin property */
+		@include transform-origin(0 50%);
+		@include transform(scale(.8));
+
+		.img-header {
+			display: block;
+		}
+	}
+
+	&::after { /* clearfix */
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	@include MQ(M) {
+		height: $header-height-M;
+
+		#cd-logo {
+			margin: 20px 0 0 5%;
+			@include transform(scale(1));
+		}
+	}
+}
 
 .main-nav {
 	float: right;

@@ -1,0 +1,181 @@
+#header{
+                background: #343642;
+                position: relative;
+                height: 80px;
+                width: 100%;
+                border-radius: 8px;
+            }
+
+#logoArea{
+                width: 350px;
+                height: 85px;
+                float: left;
+                font-size: 400%;
+                color: white;
+                padding-top: 10px;
+            }
+
+#user_nav{
+	width: 320px;
+    height: 50px;
+    float: right; 
+}
+
+#loggedAs{
+	color: white;
+}
+.container{
+				background: #edeff0;
+                width: 970px;
+                height: auto;
+                margin: 0 auto;
+                margin-top: 5px;
+                padding: 5px;
+                border-radius: 5px;
+
+            }
+
+#nav{
+                list-style: none;
+                
+            }
+
+#nav2{
+       list-style: none;
+                
+            }
+
+
+#nav li{
+                float: left;
+                margin-left: 5px;
+                background-color: #0496ab;
+                padding: 10px;
+                border: 1px solid silver;
+                border-radius: 25px;
+                margin-top: 7px;
+            }
+
+#nav2 li{
+                float: left;
+                margin-left: 5px;
+                background-color: #0496ab;
+                padding: 10px;
+                border: 1px solid silver;
+                border-radius: 25px;
+                margin-top: -10px;
+            }
+
+
+#nav li:hover{
+                background-color: grey;
+            }
+
+            
+#nav2 li:hover{
+                background-color: grey;
+            }
+
+
+.articlesTable {
+  border-collapse: separate;
+  background:white;
+  margin:50px auto;
+  box-shadow: 2px 3px 5px #888888;
+  border-bottom-left-radius:18px;
+  border-bottom-right-radius:18px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.articlesTable td{
+     font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+    font-size: 17px;
+}
+
+.articlesTable #articleTitle{
+    font-family: Cambria, Georgia, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.articlesTable #authorName{
+    font-family: Cambria, Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    font-variant: normal;
+}
+
+.articlesTable #articleCategory{
+    font-family: Cambria, Georgia, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+}
+
+
+.form-control{
+    color: #4c5d6a;
+    border-radius: 25px;
+    padding: 5px;
+    background: #c4c4b0;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.getCateg input[type=submit]{
+	border-radius: 5px;
+	padding: 5px;
+	margin-left: 10px;
+	background: #c4c4b0;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.articlesTable #show{
+	background: white;
+	border-radius: 25px;
+	padding: 5px;
+	position: relative;
+	width: 5%;
+	margin: 10px;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+
+.articlesTable #edit{
+	background: white;
+	border-radius: 25px;
+	padding: 5px;
+	position: relative;
+	width: 5%;
+	margin: 10px;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.articlesTable #destroy{
+	background: white;
+	border-radius: 25px;
+	padding: 5px;
+	position: relative;
+	width: 5%;
+	margin: 10px;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.articlesTable #authorPic{
+    border-radius: 100px;
+}
+
+#user_nav #loggedAs{
+	margin-left: 50px;
+}
+
+#footer{
+                background-color: #343642;
+                height: 40px;
+                width: 100%;
+                color: white;
+                padding-top: 20px;
+                margin-top: 5px;
+                border-radius: 10px;
+
+            }
