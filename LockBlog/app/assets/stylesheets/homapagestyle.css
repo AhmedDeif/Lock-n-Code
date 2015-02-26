@@ -2,13 +2,11 @@
 				
                 background-size: cover;
                 height: auto;
-                min-height: 500px;
+                min-height: 700px;
                 margin: 0 auto;
-                margin-top: 5px;
-                
+                margin-top: 2px;
                 padding: 5px;
                 border-radius: 5px;
-
 
             }
 
@@ -182,5 +180,79 @@ ul.slides li:not(:target){
 .slides{
 	border-radius: 20px;
 
+}
+
+#menu, #menu ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu{
+	width: 45%;
+	margin: 0 auto;
+	border: 1px solid #107677;
+	background: #111;
+	background: linear-gradient(#1ebdbe, #107677);
+	border-radius: 6px;
+	box-shadow: 0 2px 2px #ccc;
+}
+
+#menu:before,
+#menu:after{
+	content: "";
+	display: block;
+}
+
+#menu:after{
+	clear: both;
+}
+
+#menu li{
+	float: left;
+	position: relative;
+}
+
+#menu a{
+	float: left;
+	padding: 12px 30px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font: bold 12px Arial, Helvetica;
+}
+
+#menu ul{
+	margin: 20px 0 0 0;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 38px;
+	left: 0;
+	z-index: 1;
+	background: linear-gradient(#1ebdbe, #107677);
+	box-shadow: 0 -1px 0 rgba(255,255,255,0.3);
+	border-radius: 3px;
+	transition: all 0.2s ease-in-out;
+}
+
+#menu li:hover > ul{
+	opacity: 1;
+	visibility: visible;
+	margin: 0;
+}
+
+#menu ul a{
+	padding: 10px;
+	width: 130px;
+	display: block;
+	white-space: nowrap;
+	float: none;
+	text-transform: none;
+
+}
+
+#menu ul a:hover{
+	background: linear-gradient(#1ebdbe, #107677);
 }
 

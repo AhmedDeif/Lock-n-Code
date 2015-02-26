@@ -4,6 +4,7 @@ h1{
     text-align: center;
 }
 
+
 #containerIndex{
 				background: #edeff0;
                 width: 970px;
@@ -129,14 +130,7 @@ h1{
 	margin-left: 50px;
 }
 
-#footer{
-                background-color: #343642;
-                height: 40px;
-                width: 100%;
-                color: white;
-                padding-top: 20px;
-                margin-top: 5px;
-            }
+
 
 .articlesTable #imgColm{
     width: 50px;
