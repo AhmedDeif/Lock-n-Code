@@ -1,0 +1,177 @@
+#containerIndexH{
+				
+                background-size: cover;
+                height: auto;
+                min-height: 500px;
+                margin: 0 auto;
+                margin-top: 5px;
+                
+                padding: 5px;
+                border-radius: 5px;
+
+
+            }
+
+#containerIndexH #container{
+	
+                width: 715px;
+                height: 200px;
+                margin: 0 auto;
+                margin-top: 5px;
+                
+                padding: 5px;
+                border-radius: 100px;
+}
+
+
+.thumbs{
+	margin: 0 auto;
+}
+
+ul.thumbs li{
+	float: left;
+	margin-bottom: 10px;
+	margin-right: 9px;
+	position: relative;
+}
+
+
+
+ul.thumbs{
+	margin-left: auto;
+    margin-right: auto;
+
+}
+
+ul.thumbs a{
+	display: block;
+	position: relative;
+	width: 20px;
+	
+}
+
+ul.thumbs button{
+	border: none;
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	background-color: #CCCCCC;
+	font-size: 0;
+	margin-top: 2px;
+	margin-right: 9px;
+	margin-bottom: 2px;
+	margin-left: 9px;
+	cursor: pointer;
+	box-shadow: inset 0 1px 3px #666666;
+	border-radius: 100%;
+}
+
+
+
+ul.slides{
+	overflow: hidden;
+	clear: both;
+	border: #333 solid 4px;
+}
+
+ul.slides{
+	width: 705px;
+	height: 200px;
+	position: relative;
+}
+
+ul.slides li{
+	position: absolute;
+	z-index: 50;
+}
+
+@-webkit-keyframes 'slide'{
+	0% {left:-500px;}
+	100% {left: 0}
+}
+
+
+ul.slides li:target{
+	z-index: 100;
+	-webkit-animation-name: slide;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes 'noTarget'{
+	0% {z-index: 75;}
+	100% {z-index: 75;}
+}
+
+ul.slides li:not(:target){
+	-webkit-animation-name: noTarget;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+}
+
+#slide-1 .res{
+
+	width: 705px;
+	height: 350px;
+	background: url("sliderbg.jpg");
+}
+
+#slide-2 .res{
+	color: black;
+	width: 705px;
+	height: 350px;
+	background: url("slider2.jpg");
+}
+
+
+
+#slide-3 .res{
+	color: #494949;
+	width: 705px;
+	height: 350px;
+	background: url("slider3.jpg");
+	background-size: cover;
+	padding: 5px;
+}
+
+#slide-3 .res a{
+	color: #AE323B;
+}
+
+#slide-4 .res{
+	color: white;
+	width: 705px;
+	height: 350px;
+	background: url("sliderbg.jpg");
+}
+
+
+
+.res #artImg{
+	
+	border-radius: 100px;
+	height: 60px;
+	width: 60px;
+}
+
+.res #articleTitle{
+	font-size: 28px;
+	letter-spacing: -0.02em;
+	line-height: 1.15;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	text-align: center;
+}
+
+#authorName{
+	font-family: Cambria, Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    font-variant: normal;
+}
+
+.slides{
+	border-radius: 20px;
+
+}
+
