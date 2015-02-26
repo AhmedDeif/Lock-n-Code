@@ -57,6 +57,4 @@ group :development, :test do
   gem 'font-awesome-sass'
 
   gem 'coffee-script-source', '1.8.0'
-
-  gem 'puma'
 end
