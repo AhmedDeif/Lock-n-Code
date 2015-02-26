@@ -5,11 +5,21 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    if(session[:user_id].nil?)
+      redirect_to welcome_index_path 
+    else
+    @user1 = User.find(session[:user_id])
+    if(!(@user1.admin == true))
+    redirect_to welcome_index_path 
+       end
+    end 
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    
+
   end
 
   # GET /users/new
