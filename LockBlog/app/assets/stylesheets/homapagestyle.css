@@ -109,11 +109,16 @@ ul.slides li:not(:target){
 	-webkit-animation-iteration-count: 1;
 }
 
+.res{
+	padding: 5px;
+}
+
 #slide-1 .res{
 
 	width: 705px;
 	height: 350px;
 	background: url("sliderbg.jpg");
+	background-size: cover;
 }
 
 #slide-2 .res{
@@ -121,12 +126,15 @@ ul.slides li:not(:target){
 	width: 705px;
 	height: 350px;
 	background: url("slider2.jpg");
+	background-size: cover;
 }
 
-
+#slide-2 .res a{
+	color: #AE323B;
+}
 
 #slide-3 .res{
-	color: #494949;
+	color: white;
 	width: 705px;
 	height: 350px;
 	background: url("slider3.jpg");
@@ -139,10 +147,11 @@ ul.slides li:not(:target){
 }
 
 #slide-4 .res{
-	color: white;
+	color: black;
 	width: 705px;
 	height: 350px;
 	background: url("sliderbg.jpg");
+	background-size: cover;
 }
 
 
