@@ -80,9 +80,15 @@
 
             <ul class="thumbs">
                 <li><a href="#slide-1"><button></button></a></li>
+                <% if !(Article.order("created_at").first == nil)  %>
                 <li><a href="#slide-2"><button></button></a></li>
+                <%end%>
+                <% if !(Article.order("created_at").second == nil)  %>
                 <li><a href="#slide-3"><button></button></a></li>
+                <%end%>
+                <% if !(Article.order("created_at").third == nil)  %>
                 <li><a href="#slide-4"><button></button></a></li>
+                <%end%>
                 
             </ul>
         </div>
