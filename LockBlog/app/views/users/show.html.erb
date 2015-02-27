@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+
 <div class="profile">
 <div class="profile-picture">
-<p id="notice"><%= notice %></p>
+<% if(@user.profilePicture_url.to_s == "") %>
+<img src="/assets/default.jpg">
+<%else%>
 <a href="<%= @user.profilePicture_url.to_s %>">
 <img src="<%= @user.profilePicture_url.to_s %>">
 </a>
+<%end%>
 </div>
 <h4>
   <%= @user.fisrt_name %>
