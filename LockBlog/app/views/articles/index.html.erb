@@ -13,6 +13,18 @@
 <div id = "containerIndex">
 
 <h1 class="mainTitle">Listing Articles</h1>
+  <% if(!current_user.nil? and (current_user.admin == true or current_user.authorized== true)) %>
+  <tr>
+  <th ><h2></h2></th>
+  <th><h2></h2></th> 
+    <th><h2></h2></th> 
+    <th><h2></h2></th>
+
+  <th colspan="4"><button id="newArticleButton" text-alignment="right"><%= link_to 'New article', new_article_path %></button></th>
+  </tr>
+<%end%>
+
+
 
 <div class="grrrrr">
     <!-- Jssor Slider Begin -->
@@ -135,7 +147,7 @@
             */
             .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av
             {
-                background: url(/assets/b21.png) no-repeat;
+                background: url(/assets/plants-bg.jpg) no-repeat;
                 overflow:hidden;
                 cursor: pointer;
             }
@@ -145,7 +157,7 @@
             .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
         </style>
         <!-- bullet navigator container -->
-        <div u="navigator" class="jssorb21" style="position: absolute; bottom: 26px; left: 50%;">
+<div u="navigator" class="jssorb21" style="position: absolute; bottom: 26px; left: 50%;">
             <!-- bullet navigator item prototype -->
             <div u="prototype" style="POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px;"></div>
         </div>
@@ -167,7 +179,7 @@
                 position: absolute;
                 cursor: pointer;
                 display: block;
-                background: url(/assets/a21.png) center center no-repeat;
+                background: url(/assets/plants-bg.jpg) center center no-repeat;
                 overflow: hidden;
             }
             .jssora21l { background-position: -3px -33px; }
@@ -177,7 +189,6 @@
             .jssora21ldn { background-position: -243px -33px; }
             .jssora21rdn { background-position: -303px -33px; }
         </style>
-        <div>
         <!-- Arrow Left -->
         <span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 50%; left: 8px;">
         </span>
@@ -191,10 +202,11 @@
     <script>
         jssor_slider1_starter('slider1_container');
     </script>
+    </div>
 
 
 
-<form class="getCateg">
+<form class="getCateg" align="middle">
 <%= select_tag("category", options_for_select([["Select Category",""],["All",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]), {:class => 'form-control'}) %>
 <input type="submit" value="Filter" />
 
@@ -205,16 +217,7 @@
 
 
 <table class="articlesTable" style = "width:100%">
-  <% if(!current_user.nil? and (current_user.admin == true or current_user.authorized== true)) %>
-  <tr>
-  <th ><h2></h2></th>
-  <th><h2></h2></th> 
-    <th><h2></h2></th> 
-    <th><h2></h2></th>
-
-  <th colspan="4"><button id="newArticleButton"><%= link_to 'New article', new_article_path %></button></th>
-  </tr>
-<%end%>
+  
 
 
 
