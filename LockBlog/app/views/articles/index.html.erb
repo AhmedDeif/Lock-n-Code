@@ -7,14 +7,10 @@
 <h1 class="mainTitle">Listing Articles</h1>
   
   <% if(!current_user.nil? and (current_user.admin == true or current_user.authorized== true)) %>
-  <tr>
-  <th ><h2></h2></th>
-  <th><h2></h2></th> 
-    <th><h2></h2></th> 
-    <th><h2></h2></th>
+  
 
-  <th colspan="4"><button id="newArticleButton" ><%= link_to 'New article', new_article_path %></button></th>
-  </tr>
+  <button id="newArticleButton"><%= link_to 'New article', new_article_path %></button>
+
 <%end%>
 
 
@@ -24,9 +20,6 @@
 
 </form>
 
-
-
->>>>>>> origin/HomePage
 
 
 <table class="articlesTable" style = "width:100%">
