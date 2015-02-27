@@ -1,8 +1,120 @@
-<h1>Edit article</h1>
+<!DOCTYPE html>
+
+<head>
+
+  <style>
+
+body{
+  text-align: left;
+  background: #3E413C;
+  color: #97D3BE;
+   font-family: Normal font cambria;
+}
+.para{
+  font-size: 22px;
+}
+.heads{
+  text-align: center;
+ padding: 50px;
+ font-family: helvatica;
+
+}
+
+input
+{
+ border-radius: 20px;
+    border:solid 1px black;
+    padding:30px;
+    background: #ecf9f7;
+}
+.myButton{
+  background: #25A6E1;
+    background: -moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
+    background: -webkit-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+    background: -o-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+    background: -ms-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+    background: linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
+    padding: 5px 20px;
+    margin:30px 0;
+    color:#fff;
+    font-family:'Helvetica Neue',sans-serif;
+    font-size:17px;
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border:1px solid #1A87B9
+}
+
+
+
+.myButton:hover {
+  background-color:#68b3ab;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+.headers {
+  color: #2E757A;
+  font-family: Cambria, Georgia, serif;
+  font-size: 70px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.3999996185303px;
+}
+textarea {
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #F3F9D7;
+    background: #ecf9f7;
+    font-size: 30px;
+    margin: 0;
+    vertical-align: baseline;
+    vertical-align: middle: ;
+width: 650px;
+height: 300px;
  
+}
+ 
+
+ select{
+    color: #4c5d6a;
+    border-radius: 25px;
+    padding: 10px;
+    background: #ecf9f7;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.ul{ 
+  padding: 10px;
+  background: white;
+}
+.list{
+  display: inline;
+  padding: 10px 10px 10px 10px;
+}
+
+  </style>
+</head>
+<body>
+<div class='heads'>
+
+</html>
+<div class='headers'>
+Edit your article 
+</div>
+<br>
+<br>
+<br>
+
 <%= render 'form' %>
  
-<%= link_to 'Back', articles_path %>
 <%= form_for :article, url: article_path(@article), method: :patch do |f| %>
  
   <% if @article.errors.any? %>
@@ -11,28 +123,19 @@
         <%= pluralize(@article.errors.count, "error") %> prohibited
         this article from being saved:
       </h2>
-      <ul>
+      <div class 'ul'>
+      <div class 'para'>
         <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <div class 'list'><%= msg %></div>
         <% end %>
-      </ul>
+      </div>
+    </div>
     </div>
   <% end %>
  
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
  
 <%= link_to 'Back', articles_path %>
+<% end %>
+
+</div>
+</body>
