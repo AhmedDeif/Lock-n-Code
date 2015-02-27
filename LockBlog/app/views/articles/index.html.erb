@@ -18,7 +18,15 @@
 <%end%>
 
 
+<form class="getCateg" align="middle">
+<%= select_tag("category", options_for_select([["Select Category",""],["All",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]), {:class => 'form-control'}) %>
+<input type="submit" value="Filter" />
 
+</form>
+
+
+
+>>>>>>> origin/HomePage
 
 
 <table class="articlesTable" style = "width:100%">
