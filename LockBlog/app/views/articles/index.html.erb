@@ -1,14 +1,20 @@
 <%= stylesheet_link_tag "articlesIndex.css" %>
 
+
 <body>
 <div id = "containerIndex">
 
 <h1 class="mainTitle">Listing Articles</h1>
+  
+  <% if(!current_user.nil? and (current_user.admin == true or current_user.authorized== true)) %>
+  
+
+  <button id="newArticleButton"><%= link_to 'New article', new_article_path %></button>
+
+<%end%>
 
 
-
-
-<form class="getCateg">
+<form class="getCateg" align="middle">
 <%= select_tag("category", options_for_select([["Select Category",""],["All",""], ["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]), {:class => 'form-control'}) %>
 <input type="submit" value="Filter" />
 
@@ -17,16 +23,7 @@
 
 
 <table class="articlesTable" style = "width:100%">
-  <% if(!current_user.nil? and (current_user.admin == true or current_user.authorized== true)) %>
-  <tr>
-  <th ><h2></h2></th>
-  <th><h2></h2></th> 
-    <th><h2></h2></th> 
-    <th><h2></h2></th>
-
-  <th colspan="4"><button id="newArticleButton"><%= link_to 'New article', new_article_path %></button></th>
-  </tr>
-<%end%>
+  
 
 
 
@@ -70,3 +67,6 @@
 </body>
 <div id="footer"></div>
 
+
+
+   

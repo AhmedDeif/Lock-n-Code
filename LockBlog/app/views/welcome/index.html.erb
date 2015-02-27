@@ -1,147 +1,279 @@
 <%= stylesheet_link_tag 'application' %>
 <%= stylesheet_link_tag 'homapagestyle.css' %>
-			<video style="position: absolute;z-index: -5;width: 100%;height: 100%;object-fit: cover;" preload autoplay loop>
-				<source src="/videos/loop.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
-			
-<div id = "containerIndexH">
+<%= javascript_include_tag 'Welcome.js'%>
+<%= stylesheet_link_tag  href="component.css" %>
+   
 
-    <div id="transitionMenu">
-            <nav id="menu-wrap">
-                <ul id="menu">
-                    <li><a href="/">Home</a></li>
-                    <li>
-                    <a href="#">Articles</a>
-                        <ul>
-                            <li><a href="articles">All Articles</a></li>
-                            <li><a href="/articles/new">New Article</a></li>
-                        </ul>
-                    </li>
+ 
 
+  <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/85282813&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" class="hidden"></iframe>
+  
 
-
-                    <li>
-                    <a href="#">our projects</a>
-                        <ul>
-                            <li><a href="">Elmenus newsfeed</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">about lock n' code</a></li>
-
-                </ul>
-            </nav>
-    </div>
-
-<br>
-<br>
-<br>
-
-    <div id="container">
-            <ul class="slides">
-                <li class="first" id="slide-1">
-                <div class="res">
-                    welcome pic
-                               
-                         
-                        
+<body id="top">
+        <header id="home">
+          
+          <section class="hero" id="hero">
+            <div class="container">
+              <div class="row">
+                  <div id="large-header" class="large-header">
+                    <canvas id="demo-canvas"></canvas>
                 </div>
-                </li>
-                <% if !(Article.order("created_at").first == nil)  %>
-            <li id="slide-2">
-                <div class="res">
-                    <img id="artImg" src="<%= User.find(Article.order("created_at").first.user_id).profilePicture %>"><span id="authorName">
-                        
-                        <%= User.find(Article.order("created_at").first.user_id).fisrt_name %> <%= User.find(Article.order("created_at").first.user_id).last_name %>
-                    </span>
-                    </br>
-                        <p id="articleTitle"><%= Article.order("created_at").first.title %></p>
-                        <p id="articleBody"><%= Article.order("created_at").first.text.split(" ").first(73).join(" ") %>.... <a href="<%=article_path(Article.order("created_at").first) %>">Continue reading</a> </br></br>
-                        
-                                 
-                        </p> 
-                               
-                         
-                        
+                 <div class="col-md-8 col-md-offset-2 text-center inner">
+                  <h1 class="animated fadeInDown">Lock-<span>n</span>-Code</h1>
+                  <p class="animated fadeInUp delay-05s">A evolutionary new Web Design Company</p>
                 </div>
-            </li>
-                <% end %>
-
-                <% if !(Article.order("created_at").second == nil)  %>
-                <li id="slide-3">
-                <div class="res">
-                    <img id="artImg" src="<%= User.find(Article.order("created_at").second.user_id).profilePicture %>"><span id="authorName">
-                        
-                        <%= User.find(Article.order("created_at").second.user_id).fisrt_name %> <%= User.find(Article.order("created_at").second.user_id).last_name %>
-                    </span>
-                    </br>
-                        <p id="articleTitle"><%= Article.order("created_at").second.title %></p>
-                        <p id="articleBody"><%= Article.order("created_at").second.text.split(" ").first(73).join(" ") %>.... <a href="<%=article_path(Article.order("created_at").second) %>">Continue reading</a> </br></br>
-                        
-                                 
-                        </p> 
-                               
-                         
-                        
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                  <a href="articles#index" class="learn-more-btn">Visit our article</a>
                 </div>
-            </li>
-            <%end%>
+              </div>
+            </div>
+               <!-- /container -->
+        <script src="/assets/TweenLite.min.js"></script>
+        <script src="/assets/EasePack.min.js"></script>
+        <script src="/assets/rAF.js"></script>
+        <script src="/assets/demo-1.js"></script>
+               
 
-            <% if !(Article.order("created_at").third == nil)  %>
-            <li id="slide-4">
-                <div class="res">
-                    <img id="artImg" src="<%= User.find(Article.order("created_at").third.user_id).profilePicture %>"><span id="authorName">
-                        
-                        <%= User.find(Article.order("created_at").third.user_id).fisrt_name %> <%= User.find(Article.order("created_at").third.user_id).last_name %>
-                    </span>
-                    </br>
-                        <p id="articleTitle"><%= Article.order("created_at").third.title %></p>
-                        <p id="articleBody"><%= Article.order("created_at").third.text.split(" ").first(73).join(" ") %>.... <a href="<%=article_path(Article.order("created_at").third) %>">Continue reading</a> </br></br>
-                        
-                                 
-                        </p> 
-                               
-                         
-                        
-                </div>
-            </li>
-                <%end%>
+          </section>
+        </header>
 
-            </ul>
-
-            <ul class="thumbs">
-                <li><a href="#slide-1"><button></button></a></li>
-                <% if !(Article.order("created_at").first == nil)  %>
-                <li><a href="#slide-2"><button></button></a></li>
-                <%end%>
-                <% if !(Article.order("created_at").second == nil)  %>
-                <li><a href="#slide-3"><button></button></a></li>
-                <%end%>
-                <% if !(Article.order("created_at").third == nil)  %>
-                <li><a href="#slide-4"><button></button></a></li>
-                <%end%>
-                
-            </ul>
-		<div style="text-align: right;">
-		<a href="articles">View all articles</a>
-		</div>
-		
-		<br>
-		<br>
-		<br>
-		
-		 <p style="font-size:20px;font-style: italic;width: 705px;">	Social networks allows users to take different types of actions to submit their content , this points for the need of a centralized place to be able to handle all the user’s actions , and with users increasing daily , this has become a central feature, el menus has become a social network for food lovers as lots of user contents is being released daily , therefore the idea of a news feed  for food lovers has been brought up for users to be able to browse through the activities of their food loving friends and fellow foodies. </p>
-
+        <section class="features text-center section-padding" id="features">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">Love what you do, and you'll do it well</h1>
+                <p>we love working as software engineers</p>
+              </div>
+            </div>
+          </div>
+      </div>
+        </section>
+       
+        <section class="swag text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <h1>I got 99 Problems<span>but <em>design</em> 'aint one</span></h1>
+                <a href="#top" class="down-arrow-btn" class="disabled"><i class="fa fa-chevron-down"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="portfolio text-center section-padding" id="portfolio">
+          <h1 class="arrow" >Our vision is clear</h1>
+          <p>Kill all lalas</p>
+        </section>
+        <div class="ignite-cta text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <a href="http://bit.ly/1zMKmr3" class="ignite-btn">Ignite Your Passion</a>
+              </div>
+            </div>
+          </div>
         </div>
-		
+<h1 class="arrow"style="background:#2E757A;">Our amazing team</h1>
+       
+  <section id="myCarousel" class="carousel slide">
+    <style scoped>
+
+    .carousel,
+.item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+#myCarousel{
+    background: #fff;
+    height: 600px;
+}
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+footer {
+    margin: 50px 0;
+}
+ol{
+    position: relative;
+    top: 95%;
+}
+.col-md-4{
+    text-align: center;
+    height: 75%;
+    position: relative;
+    top: 30%
+}
+
+body{
+  background:#2E757A;
+}
+    </style>
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner" >
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background:#2E757A;">
+                      <div class="col-md-4">
+                        <a href="/static_pages/doola"><img src="/assets/doola.jpg" style=" border-radius: 100px; width:100px; height:100px;" class="Team"></a>
+                        <h2>Ahmed Adel</h2>
+                        <p>el scrum master جعان</p>
+                      </div>
+                      
+                      <div class="col-md-4 delay-05s">
+                       <a href="/static_pages/hagin"> <img src="/assets/hagin.jpg" style=" border-radius: 100px; width:100px; height:100px;"class="Team"></a>
+                        <h2>Omar ELHagin</h2>
+                        <p>Verbally Constipated</p>
+                      </div>
+                      <div class="col-md-4 delay-1s">
+                       <a href="/static_pages/khalid"> <img src="/assets/sheikh.jpg" style=" border-radius: 100px; width:100px; height:100px;" class="Team"></a>
+                        <h2>Khaled ElSheikh</h2>
+                        <p>‏‏‏‏أنا الوزير..أنا الوزير يا ولاد الكلب....</p>
+                      </div>
+                    </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background:#2E757A;">  
+                      <div class="col-md-4">
+                        <a href="/static_pages/amira"><img src="/assets/amira.jpg" style=" border-radius: 100px; width:100px; height:100px;" class="Team"></a>
+                        <h2>Amira ElEwady</h2>
+                        <p>a computer Engineering student at the German University in Cairo.
+Reading is my passion.Love traveling.
+If you can see it in your mind, You can hold it in your hands.</p>
+                      </div>
+                      
+                      <div class="col-md-4 delay-05s">
+                        <a href="/static_pages/menna"><img src="/assets/menna.jpg" style=" border-radius: 100px; width:100px; height:100px;" class="Team"></a>
+                        <h2>Menna ElSayed</h2>
+                        <p>IAMBATMAN!!!</p>
+                      </div>
+                      <div class="col-md-4 delay-1s">
+                        <a href="/static_pages/rania"><img src="/assets/rania.jpg" style=" border-radius: 100px; width:100px; height:100px;" class="Team"></a>
+                        <h2>Rania A. Monem</h2>
+                        <p>Studying Computer Science at the GUC. Perfectionist. Satisfaction is what I'm looking for. One day you'll read my bio on Wikipedia.</p>
+                      </div>
+                    </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background:#2E757A;">  
+                      <div class="col-md-4">
+                        <a href="/static_pages/omar"><img src="/assets/OmarAdel.jpg" style=" border-radius: 100px; width:100px; height:100px;" class="Team"></a>
+                        <h2>Omar Adel</h2>
+                        <p>Craziness is Like Heaven</p>
+                      </div>
+                      
+                      <div class="col-md-4 delay-05s">
+                       <a href="/static_pages/kareem"> <img src="/assets/kareem.jpg" style=" border-radius: 100px; width:100px; height:100px;"  class="Team"></a>
+                        <h2>Kareem Fathi</h2>
+                        <p>i'm An enthusiastic self-developing computer engineer who is very passionate about programming, created several desktop applications and also multiple android applications as a hobby.</p>
+                      </div>
+                      <div class="col-md-4 delay-1s">
+                        <a href="/static_pages/hossam"><img src="/assets/hossam.jpg" style=" border-radius: 100px; width:100px; height:100px;" class="Team"></a>
+                        <h2>Hossam Hazem</h2>
+                        <p> I consider coding as puzzle solving and learning new programming languages and concepts as a new adventure and treasure hunting. My goal is the ultimate knowledge in computer science specifically and in life generally</p>
+                      </div>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </section>
 
 
 
-</div>
 
-
-
-
-
-
+        <section class="subscribe text-center">
+          <div class="container">
+            <h1><i class="fa fa-paper-plane"></i><span>Subscribe to stay in the loop</span></h1>
+            <form action="#">
+              <input type="text" name="" value="" placeholder="Email us" required>
+              <input type="submit" name="" value="Send">
+            </form>
+          </div>
+        </section>
+        <section class="dark-bg text-center section-padding contact-wrap" id="contact">
+          <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">Drop us a line</h1>
+              </div>
+            </div>
+            <div class="row contact-details">
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
+                  <p>23, Company ,ELrehab</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
+                  <p>+61 9 211 3747</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="light-box box-hover">
+                  <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+                  <p><a href="#">lock.n.code.se@gmail.com</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="social-buttons">
+                  <li><a href="https://www.facebook.com/pages/Lock-N-Code/1084415398251072" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a href="https://twitter.com/Lock_N_Code" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="legals">
+                  <li><a href="#">Terms &amp; Conditions</a></li>
+                  <li><a href="#">Legals</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 credit">
+                <p>Designed &amp; Developed by <a>Lock-n-Code</a></p>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      </body>
+ 

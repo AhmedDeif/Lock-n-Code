@@ -21,6 +21,7 @@ Rails.application.config.assets.precompile += %w( flexslider.css )
 Rails.application.config.assets.precompile += %w( queries.css )
 Rails.application.config.assets.precompile += %w( styles.css )
 Rails.application.config.assets.precompile += %w( animate.css)
+Rails.application.config.assets.precompile += %w( bullet.png )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

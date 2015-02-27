@@ -1,0 +1,137 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+	background-color: #2E757A;
+}
+
+
+
+.profile {
+	width: 100%;
+	background-size: cover;
+	height: 100%;
+	font-weight: 400;
+	text-align: center;
+  /* Background image is centered vertically and horizontally at all times */
+  
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  
+}
+
+
+
+
+
+.profile a img {
+
+
+  
+  border-radius: 100px;
+  z-index: 100;
+  margin-right: auto;
+  margin-left: auto;
+  border: 5px solid white;
+  max-width:300px;
+  max-height:300px;
+}
+
+.profile h4 {
+	text-align: center;
+	text-transform: uppercase;
+	color: #1F211E;
+	padding-top: 14px;
+	padding-bottom: 2px;
+	font-weight: bold;
+	opacity: 0.775;
+	font-size: 16pt;
+	margin-left: auto;
+}
+
+.profile h2 {
+	text-align: center;
+	color: #1F211E;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	font-weight: bold;
+	opacity: 0.775;
+	font-size: 13pt;
+	margin-left: auto;
+}
+
+.profile p {
+	text-align: center;
+	color: #1F211E;
+	font-size: 11pt;
+	font-weight: 400;
+	opacity: 0.7;
+	margin-top: 4px;
+	margin-left: auto;
+}
+
+.profile p a {
+	color: black;
+	font-weight: bold;
+	margin-left: auto;
+}
+
+.profile .social-links {
+	width: 320px;
+	text-align: center;
+	margin-top: 14px;
+	margin-left: auto;
+	margin-right: auto;
+  margin-left: auto;
+}
+
+.social-links {
+	width: 320px;
+	text-align: center;
+	margin-top: 14px;
+	margin-left: auto;
+	margin-right: auto;
+  margin-left: auto;
+  font-size: 2em;
+}
+}
+
+.profile .social-links .link {
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
+  margin-left: auto;
+}
+
+.profile .social-links a {
+	color: black;
+	opacity: 0.755;
+	padding: 12px;
+	font-size: 24pt;
+	margin-left: auto;
+	text-align: center;
+	margin-right: auto;
+  margin-left: auto;
+}
+
+.profile .social-links a:hover {
+	opacity: 0.825;
+}
+
+.profile p.number {
+	padding-top: 8px;
+	font-size: 11pt;
+	font-style: italic;
+	margin-left: auto;
+}
+
+.profile p.email {
+	padding-top: 8px;
+	font-size: 11pt;
+	font-style: italic;
+	margin-left: auto;
+}
