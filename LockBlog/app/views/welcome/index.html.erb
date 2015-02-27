@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag 'application' %>
 <%= stylesheet_link_tag 'homapagestyle.css' %>
 <%= javascript_include_tag 'Welcome.js'%>
+<%= stylesheet_link_tag  href="component.css" %>
    
 <body id="top">
         <header id="home">
@@ -8,7 +9,10 @@
           <section class="hero" id="hero">
             <div class="container">
               <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center inner">
+                  <div id="large-header" class="large-header">
+                    <canvas id="demo-canvas"></canvas>
+                </div>
+                 <div class="col-md-8 col-md-offset-2 text-center inner">
                   <h1 class="animated fadeInDown">Lock-<span>n</span>-Code</h1>
                   <p class="animated fadeInUp delay-05s">A evolutionary new Web Design Company</p>
                 </div>
@@ -19,6 +23,13 @@
                 </div>
               </div>
             </div>
+               <!-- /container -->
+        <script src="/assets/TweenLite.min.js"></script>
+        <script src="/assets/EasePack.min.js"></script>
+        <script src="/assets/rAF.js"></script>
+        <script src="/assets/demo-1.js"></script>
+               
+
           </section>
         </header>
 
