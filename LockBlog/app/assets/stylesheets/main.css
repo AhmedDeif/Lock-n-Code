@@ -18,7 +18,18 @@ body {
   
 }
 
+.profile  img {
 
+
+  
+  border-radius: 100px;
+  z-index: 100;
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px solid white;
+  max-width:300px;
+  max-height:300px;
+}
 
 
 
