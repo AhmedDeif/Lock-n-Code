@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+
 <head>
 
   <style>
@@ -10,22 +10,14 @@ body{
   color: #97D3BE;
    font-family: Normal font cambria;
 }
-p{
+.para{
   font-size: 22px;
 }
-header{
+.heads{
   text-align: center;
  padding: 50px;
  font-family: helvatica;
 
-}
-ul{ 
-  padding: 10px;
-  background: white;
-}
-li{
-  display: inline;
-  padding: 10px 10px 10px 10px;
 }
 
 input
@@ -65,7 +57,7 @@ input
   top:1px;
 }
 
-h1 {
+.headers {
   color: #2E757A;
   font-family: Cambria, Georgia, serif;
   font-size: 70px;
@@ -108,10 +100,12 @@ height: 300px;
 
 
 <body>
-<header>
+<div class='heads'>
 
 </html>
-<h1>Write Your Article</h1>
+<div class='headers'>
+Write Your Article
+</div>
 <br>
 <br>
 <br>
@@ -122,24 +116,24 @@ height: 300px;
 
 <%= f.select :category, options_for_select([["Test", "test"], ["Urgent", "urgent"], ["Announcement", "announcement"]]) %>
 
-<p>
+<div class='para'>
     <%= f.text_field :title, :placeholder => "Article Title", :cols => "50", :rows => "30"%>
-  </p>
+  </div>
 
   
-  <p>
+<div class='para'>
 
  <%= f.text_area :text, :placeholder => "Start Writing...", :cols => "80", :rows => "20"%>
- </p>
+ </div>
  
 
 
    
  
-  <p>
+<div class='para'>
    
     <%= f.submit 'Post Article', :class => 'myButton' %>
-  </p>
+ </div>
   
 <% end %>
 
@@ -153,5 +147,5 @@ height: 300px;
 
 
 
-</header>
+</div>
 </body>
