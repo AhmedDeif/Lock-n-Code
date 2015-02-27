@@ -33,10 +33,11 @@
             height: 500px; overflow: hidden; border-radius: 3%;">
             <div style="background:#343642; color:white;">
                
-                
+                <%if !(Article.order("created_at").first == nil)%>
                    <div class="res">
                     <img id="artImg" src="    <%= User.find(Article.order("created_at").first.user_id).profilePicture %>" style="width:200px;height:200px" >
                     <span id="authorName" style="font-size:70px ">
+                    <%end%>
                         <%if !(Article.order("created_at").first == nil)%>
                         <%= User.find(Article.order("created_at").first.user_id).fisrt_name %> <%= User.find(Article.order("created_at").first.user_id).last_name %>
                         <% end %>
@@ -100,7 +101,8 @@
                     <img id="artImg" src="    <%= User.find(Article.order("created_at").third.user_id).profilePicture %>" style="width:200px;height:200px" >
                     <span id="authorName" style="font-size:70px ">
                         
-                        <%= User.find(Article.order("created_at").third.user_id).third_name %> <%= User.find(Article.order("created_at").third.user_id).last_name %>
+                        <%= User.find(Article.order("created_at").third.user_id).fisrt_name %> 
+                        <%= User.find(Article.order("created_at").third.user_id).last_name %>
                     </span>
                     </br>
                         <p id="articleTitle" style="font-size:50px "><%= Article.order("created_at").third.title %></p>
