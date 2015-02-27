@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/menna'
+
+  get 'static_pages/amira'
+
+  get 'static_pages/rania'
+
+  get 'static_pages/khalid'
+
+  get 'static_pages/omar'
+
+  get 'static_pages/kareem'
+
+  get 'static_pages/doola'
+
+  get 'static_pages/hagin'
+
+  get 'static_pages/hossam'
+
     get 'log_in' => 'sessions#new'
   get 'log_out' => 'sessions#Destroy', :as => 'log_out'
   get 'sign_up' => 'users#new'
