@@ -198,11 +198,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
-<<<<<<< HEAD
-  pg (= 0.17.1)
-=======
   pg
->>>>>>> HomePage
   rails (= 4.2.0)
   rails_12factor (= 0.0.2)
   redcarpet
