@@ -23,6 +23,7 @@ html * {
 }
 
 body {
+	background-color:#2E757A;
 	font: {
 		size: 100%;
 		family: $primary-font; // variables inside partials > _variables.scss
