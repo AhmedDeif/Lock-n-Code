@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require welcome.js
+//= require welcome
 //= require_tree .
