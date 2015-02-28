@@ -8,7 +8,7 @@ HTML5 display definitions
 /* * Corrects `block` display not defined in IE 6/7/8/9 and Firefox 3. */
  
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
-/* * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3. */
+/* * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3. *
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 /* * Prevents modern browsers from displaying `audio` without controls.
 * Remove excess height in iOS 5 devices. */
@@ -280,7 +280,7 @@ Contact
 	 background: #2E757A;
 }
 .contact-details { margin: 70px 0;  }
-. .col-md-4 { background: #2E757A;}
+.col-md-4 { background: #2E757A;}
 .contact-details h2 { font-size: 20px; }
 .contact-details h2 span { display: block; color: #3dc9b3; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; margin-top: 15px; }
 .contact-wrap { position: relative; }
