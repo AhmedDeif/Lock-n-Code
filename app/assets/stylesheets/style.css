@@ -150,11 +150,7 @@ header[role=banner]::after {
   
   }
   .main-nav .li-header:nth-last-child(2) {
-<<<<<<< HEAD
     margin-left: 2em;
-=======
-  
->>>>>>> استبن
   }
   .main-nav .a-header {
     display: inline-block;
@@ -316,11 +312,7 @@ xsigin/signup popup
   background-image: url("../img/cd-icon-password.svg");
 }
 .cd-form .input-me {
-<<<<<<< HEAD
   margin: 0;
-=======
- 
->>>>>>> استبن
   padding: 0;
   border-radius: 0.25em;
 }

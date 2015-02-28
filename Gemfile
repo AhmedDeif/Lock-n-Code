@@ -1,4 +1,3 @@
-
 source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -31,7 +30,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-gem 'carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -50,20 +48,16 @@ group :development, :test do
   
   # gem 'social-share-button'
   
-  gem "auto_html"
-
-  gem 'bourbon'
-
-  gem 'bootstrap-sass', '3.2.0.0'
-
-  gem "redcarpet"
-
-  gem 'font-awesome-sass'
-
   gem 'coffee-script-source', '1.8.0'
 end
 
 group :production do
   gem 'pg'
+  gem 'bourbon'
+  gem "auto_html"
+  gem 'carrierwave'
+  gem 'bootstrap-sass', '3.2.0.0'
+  gem "redcarpet"
+  gem 'font-awesome-sass'
   gem 'rails_12factor', '0.0.2'
 end
