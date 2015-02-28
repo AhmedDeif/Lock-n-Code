@@ -25,6 +25,7 @@ module LockBlog
 
     config.sass.load_paths ||= []
     config.sass.load_paths << "#{Rails.root}/app/assets/stylesheets"
+    config.serve_static_assets = true
 
     if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
