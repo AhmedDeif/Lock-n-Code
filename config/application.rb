@@ -1,5 +1,4 @@
 require File.expand_path('../boot', __FILE__)
-config.serve_static_assets = true
 require 'rails/all'
 require "sass-rails"
 
