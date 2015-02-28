@@ -7,11 +7,11 @@ gem 'tzinfo-data'
 #gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -34,6 +34,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :assets do 
+gem 'sass-rails', '~> 5.0'
+gem 'coffee-rails', '~> 4.1.0'
+ gem 'font-awesome-sass'
+  gem 'bootstrap-sass', '3.2.0.0'
+  gem 'uglifier', '>= 1.3.0'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -49,6 +57,8 @@ group :development, :test do
   # gem 'social-share-button'
   
   gem 'coffee-script-source', '1.8.0'
+
+  gem 'auto_html'
 end
 
 group :production do
@@ -56,8 +66,8 @@ group :production do
   gem 'bourbon'
   gem "auto_html"
   gem 'carrierwave'
-  gem 'bootstrap-sass', '3.2.0.0'
+ 
   gem "redcarpet"
-  gem 'font-awesome-sass'
+ 
   gem 'rails_12factor', '0.0.2'
 end

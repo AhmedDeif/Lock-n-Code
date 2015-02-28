@@ -22,7 +22,19 @@ Rails.application.config.assets.precompile += %w( queries.css )
 Rails.application.config.assets.precompile += %w( styles.css )
 Rails.application.config.assets.precompile += %w( animate.css)
 Rails.application.config.assets.precompile += %w( bullet.png )
-
+Rails.application.config.assets.precompile += %w( bg.png )
+Rails.application.config.assets.precompile += %w( h1-bg.png )
+Rails.application.config.assets.precompile += %w( convers.jpg )
+Rails.application.config.assets.precompile += %w( keyboard-bg.jpg )
+Rails.application.config.assets.precompile += %w( doola.jpg )
+Rails.application.config.assets.precompile += %w( hagin.jpg )
+Rails.application.config.assets.precompile += %w( kareem.jpg )
+Rails.application.config.assets.precompile += %w( menna.jpg )
+Rails.application.config.assets.precompile += %w( amira.jpg )
+Rails.application.config.assets.precompile += %w( rania.jpg )
+Rails.application.config.assets.precompile += %w( sheikh.jpg )
+Rails.application.config.assets.precompile += %w( hossam.jpg )
+Rails.application.config.assets.precompile += %w( OmarAdel.jpg )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
