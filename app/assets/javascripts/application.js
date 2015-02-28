@@ -14,4 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require welcome
+//= require EasePack.min
+//= require TweenLite.min
+//= require rAF
+//= require demo-1
 //= require_tree .
+
