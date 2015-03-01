@@ -65,7 +65,8 @@ group :production do
   gem 'pg'
   gem 'bourbon'
 
- 
+ gem 'carrierwave'
+  gem 'auto_html'
   gem "redcarpet"
  
   gem 'rails_12factor', '0.0.2'
