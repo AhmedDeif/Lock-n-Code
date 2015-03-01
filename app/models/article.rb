@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
 
     has_many :comments
 
-
+  require 'carrierwave'
     mount_uploader :image, ImageUploader
 	
 	has_many :comments
